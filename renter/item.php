@@ -62,25 +62,24 @@
                     <h6 class="text-body-secondary pb-1">Laptop</h6>  
                 </div>
                 
-                <div class="card gap-2 mb-2">
-                    <div class="card-body">
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <h5 class="border-end pe-2">5</h5>
+                <div class="gap-2 mb-2">
+                    <div class="d-flex">
+                    <h5 class="pe-2">5</h5>
+                    <i class="bi bi-star-fill text-warning border-end pe-2"></i>
 
-                    <h5 class="text-primary">20</h5>
+                    <h5 class="text-primary ps-2 pe-2">20</h5>
                     <h5 class="border-end pe-2">Ratings</h5>
 
-                    <h5 class="text-success">21</h5>
+                    <h5 class="text-success ps-2 pe-2">21</h5>
                     <h5 class="pe-2">Rentals</h5>
                     </div>
                 </div>
 
-                
-                <h5 class="mt-3">Condition</h5>
-                <div class="d-flex gap-2 mb-2">
-                    <h6 class="border rounded bg-outline-success p-1 text-success">Good</h5>
-                    <h6 class="border rounded bg-outline-success p-1 text-success">Good</h5>
-                    <h6 class="border rounded bg-outline-success p-1 text-success">Good</h5>
+                <div class="d-flex flex-row gap-2 mb-2">
+                <h6 class="mt-3">Condition</h6>    
+                    <h5 class="border rounded bg-outline-success text-success">Good</h5>
+                    <h5 class="border rounded bg-outline-success text-success">Good</h5>
+                    <h5 class="border rounded bg-outline-success text-success">Good</h5>
                 </div>
                 <div class="d-flex gap-5">
                     <div class="mb-3">
