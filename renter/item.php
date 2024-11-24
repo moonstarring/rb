@@ -7,7 +7,8 @@
         <link rel="icon" type="image/png" href="../images/rb logo white.png">
         <link href="vendor/bootstrap-5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="../vendor/font/bootstrap-icons.css">
-        <link rel="stylesheet" href="other.css">
+        <link rel="stylesheet" href="carousel.css">
+        <link rel="stylesheet" href="../other.css">
     </head>
     <body>
     <?php
@@ -24,34 +25,43 @@
     </div>
 
     <div class="bg-body-secondary p-4">      
-        <main class="border bg-body mx-3 p-5 rounded-5 d-flex flex-row">
+        <main class="bg-body mx-3 p-5 rounded-5 d-flex flex-row">
             
-            <div id="carousel" class="carousel carousel-dark slide border mx-5">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-                    <div class="carousel-inner d-flex" style="width: 600px; height: 300px;">
-                        <div class="carousel-item active" data-bs-interval="10000">
-                            <img src="../images/laptop.png" alt="image">
-                        </div>
-                        <div class="carousel-item" data-bs-interval="2000">
-                            <img src="../images/laptop.png" alt="image">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../images/laptop.png" alt="image">
-                        </div>
-                    </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon rounded-circle" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
+        <div id="carouselIndicator" class="carousel carousel-dark slide me-3">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselIndicator" data-bs-slide-to="0" class="active border rounded" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselIndicator" data-bs-slide-to="1" class="border rounded" aria-label="Slide 2 rounded"></button>
+                <button type="button" data-bs-target="#carouselIndicator" data-bs-slide-to="2" class="border rounded" aria-label="Slide 3 rounded"></button>
             </div>
+            <div class="carousel-inner border" style="width:600px; height:400px;">
+                <div class="carousel-item active">
+                <img src="includes/images/laptop.png" alt="..." class="" style="object-fit:contain; width:600px; height:400px;">
+                </div>
+                <div class="carousel-item">
+                <img src="includes/images/surface.jpg" alt="..." class="" style="object-fit:contain; width:600px; height:400px;">
+                </div>
+                <div class="carousel-item">
+                <img src="includes/images/laptop.png" alt="..." class="" style="object-fit:contain; width:600px; height:400px;">
+                </div>
+            </div>
+            <div class="d-flex">
+                
+            </div>
+            
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicator" data-bs-slide="prev">
+                <div class="d-flex align-items-center position-absolute top-0" style="width: auto; height: 400px;">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+                </div>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicator" data-bs-slide="next">
+                <div class="d-flex align-items-center position-absolute top-0" style="width: auto; height: 400px;">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+                </div>
+            </button>
+            
+        </div>
 
 
 
@@ -110,6 +120,17 @@
 
         </main>
     </div>
+
+    <footer class="">
+        <div class="d-flex flex-column flex-sm-row justify-content-between py-2 border-top">
+            <p>© 2024 Rentbox. All rights reserved.</p>
+            <ul class="list-unstyled d-flex pe-3">
+            <li class="ms-3"><a href=""><i class="bi bi-facebook text-body"></i></a></li>
+            <li class="ms-3"><a href=""><i class="bi bi-twitter-x text-body"></i></a></li>
+            <li class="ms-3"><a href=""><i class="bi bi-linkedin text-body"></i></a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 <script src="../vendor/bootstrap-5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
