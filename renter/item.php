@@ -32,15 +32,15 @@
                     <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
                     <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
-                    <div class="carousel-inner d-flex">
+                    <div class="carousel-inner d-flex" style="width: 600px; height: 300px;">
                         <div class="carousel-item active" data-bs-interval="10000">
-                            <img src="rb logo white.jpg" class="cover" alt="image">
+                            <img src="../images/laptop.png" alt="image">
                         </div>
                         <div class="carousel-item" data-bs-interval="2000">
-                            <img src="rb logo white.jpg" class="cover" alt="image">
+                            <img src="../images/laptop.png" alt="image">
                         </div>
                         <div class="carousel-item">
-                            <img src="rb logo white.jpg" class="cover" alt="image">
+                            <img src="../images/laptop.png" alt="image">
                         </div>
                     </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
@@ -61,41 +61,41 @@
                     <h1>Product Name</h1>  
                     <h6 class="text-body-secondary pb-1">Laptop</h6>  
                 </div>
-                
-                <div class="card gap-2 mb-2">
-                    <div class="card-body">
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <h5 class="border-end pe-2">5</h5>
 
-                    <h5 class="text-primary">20</h5>
+                <div class="d-flex gap-2 mb-2">
+                    <a href=""><h5>5</h5></a>
+                    <i class="bi bi-star-fill text-warning border-end pe-2"></i>
+
+                    <a href=""><h5 class="text-primary">20</h5></a>
                     <h5 class="border-end pe-2">Ratings</h5>
 
-                    <h5 class="text-success">21</h5>
+                    <a href=""><h5 class="text-primary">21</h5></a>
                     <h5 class="pe-2">Rentals</h5>
-                    </div>
                 </div>
 
+                <h3 class="bg-light-subtle text-success fw-bold p-2 mt-3 " style="width: 400px;">₱200</h3>
                 
-                <h5 class="mt-3">Condition</h5>
-                <div class="d-flex gap-2 mb-2">
-                    <h6 class="border rounded bg-outline-success p-1 text-success">Good</h5>
-                    <h6 class="border rounded bg-outline-success p-1 text-success">Good</h5>
-                    <h6 class="border rounded bg-outline-success p-1 text-success">Good</h5>
+                <div class="d-flex gap-2 mt-4 mb-2 align-items-center">
+                    <h6 class="me-5 text-body-secondary">Condition</h6>  
+                    <p class="mb-0 border rounded border-success px-2 py-1 text-success">Good</p>
                 </div>
-                <div class="d-flex gap-5">
-                    <div class="mb-3">
-                        <h5>Specifications:</h5>
-                        <h6>Specs</h6>
-                        <h6>Specs</h6>
-                        <h6>Specs</h6>
-                        <h6>Specs</h6>
-                    </div>
-                    <div class="mb-2">
-                        <h5>Accessories:</h5>
-                        <h6>Charger</h6>
-                        <h6>Mouse</h6>
-                        <h6>Headphoness</h6>
-                    </div>
+
+                <div class="d-flex gap-2 mt-2 mb-2 align-items-center">
+                    <h6 class="text-body-secondary" style="margin-right: 20px;">Specifications</h6>  
+                    <div class="d-flex align-items-center border rounded border-success px-2 py-1 text-success">
+                        <p class="mb-0 border-end border-1 border-success pe-1">Intel i3</p>
+                        <p class="mb-0 border-end border-1 border-success px-1">14 hz LCD</p>
+                        <p class="mb-0 ps-1">Other</p>
+                    </div>                        
+                </div>
+
+                <div class="d-flex gap-2 mt-2 mb-2 align-items-center">
+                    <h6 class="text-body-secondary" style="margin-right: 37px;">Accessories</h6>  
+                    <div class="d-flex align-items-center border rounded border-success px-2 py-1 text-success">
+                        <p class="mb-0 border-end border-1 border-success pe-1">Charger</p>
+                        <p class="mb-0 border-end border-1 border-success px-1">Laptop Bag</p>
+                        <p class="mb-0 ps-1">Other</p>
+                    </div>                        
                 </div>
 
                 <h5>Rental Period</h5>
