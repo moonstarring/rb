@@ -7,14 +7,14 @@
         <link rel="icon" type="image/png" href="../images/rb logo white.png">
         <link href="vendor/bootstrap-5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="../vendor/font/bootstrap-icons.css">
-        <link rel="stylesheet" href="carousel.css">
+        <link rel="stylesheet" href="../vendor/flatpickr.min.css">
         <link rel="stylesheet" href="../other.css">
     </head>
     <body>
     <?php
         require_once 'includes/navbar.php';
     ?>
-    <!-- <hr class="m-0 p-0"> -->
+    <hr class="m-0 p-0 opacity-25">
     <div class="z-3 position-absolute top-0" style="margin-left: 35%;">
         <form class="d-flex my-4 " style="width:400px;">
             <input class="form-control input-group-text shadow-sm rounded-pill me-2 border" type="text" placeholder="Search" id="searchInput"/>
@@ -43,9 +43,6 @@
                 <div class="carousel-item">
                 <img src="includes/images/laptop.png" alt="..." class="" style="object-fit:contain; width:600px; height:400px;">
                 </div>
-            </div>
-            <div class="d-flex">
-                
             </div>
             
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicator" data-bs-slide="prev">
@@ -108,9 +105,13 @@
                     </div>                        
                 </div>
 
-                <h5>Rental Period</h5>
-                <div class="d-flex gap-2 justify-content-start my-1">
-                    <button class="btn btn-light rounded-pill px-3" type="button">Light</button>
+                <div class="d-flex mb-2">
+                    <h6 class="text-body-secondary" style="margin-right: 70px;">Reserve</h6>  
+                    <div class="d-flex">
+                        <input class="border border-success border-1 rounded-start px-2 text-success" type="text" id="startDate" placeholder="Start Date" style="width: 100px;">
+                        <input class="border border-success border-1 rounded-end px-2 text-success" type="text" id="endDate" placeholder="End Date" style="width: 100px;">
+                    </div>
+                    
                 </div>
 
                 <button type="button" class="btn bg-light border" href="">Add to Cart</button>
@@ -133,7 +134,8 @@
     </footer>
 </body>
 <script src="../vendor/bootstrap-5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
+<script src="../vendor/flatpickr.min.js"></script>
+    <script>
     //search input 
     const searchInput = document.getElementById('searchInput');
 
@@ -145,5 +147,20 @@
         this.classList.remove('border-success');
     });
     
-</script>
+    //flatpickr
+ 
+    flatpickr("#startDate", {
+    dateFormat: "Y-m-d", // Specify the date format (check Flatpickr docs for options)
+    minDate: "today",     // Set the minimum selectable date
+    disableMobile: true // Disable the mobile-specific UI.
+    });
+
+    flatpickr("#endDate", {
+    dateFormat: "Y-m-d", // Specify the date format (check Flatpickr docs for options)
+    maxDate: new Date(2025, 11, 1), // Set the maximum selectable date
+    disableMobile: true // Disable the mobile-specific UI.
+    });
+    
+    </script>
+
 </html>
