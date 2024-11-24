@@ -25,7 +25,7 @@
     </div>
 
     <div class="bg-body-secondary p-4">      
-        <main class="bg-body mx-3 p-5 rounded-5 d-flex flex-row">
+        <main class="bg-body mx-3 p-5 rounded-5 d-flex flex-row mb-5">
             
         <div id="carouselIndicator" class="carousel carousel-dark slide me-3">
             <div class="carousel-indicators">
@@ -61,7 +61,7 @@
         </div>
 
 
-
+            <?php $productPrice = 200; ?>
             <div class="container-fluid">
                 <p>Link/Link/Link/TBA</p>
                 <div class="d-flex align-items-end gap-2 mb-2">
@@ -80,10 +80,15 @@
                     <h5 class="pe-2">Rentals</h5>
                 </div>
 
-                <?php $productPrice = 200; ?>
-                <h3 class="bg-light-subtle text-success fw-bold p-2 mt-3 " style="width: 400px;" id="totalPrice">
-                    ₱<?php echo $productPrice; ?>
-                </h3>
+                <div class="bg-light d-flex align-items-end rounded-3 p-3" style="width: 550px;">
+                    <h3 class="text-success fw-bold pe-2 mb-0" id="totalPrice">
+                        ₱<?php echo $productPrice; ?>
+                    </h3>
+                    <small id="selectedDates" class="text-body-secondary mb-0" style="display: none;">
+                        Start Date: <span id="displayStartDate">None</span>, End Date: <span id="displayEndDate">None</span>
+                    </small>
+                </div>
+                
                 
                 <div class="d-flex gap-2 mt-4 mb-2 align-items-center">
                     <h6 class="me-5 text-body-secondary">Condition</h6>  
@@ -131,7 +136,7 @@
         </main>
     </div>
 
-    <footer class="">
+    <footer>
         <div class="d-flex flex-column flex-sm-row justify-content-between py-2 border-top">
             <p class="ps-3">© 2024 Rentbox. All rights reserved.</p>
             <ul class="list-unstyled d-flex pe-3">
@@ -159,45 +164,61 @@
     //flatpickr
  
     flatpickr("#startDate", {
-    dateFormat: "Y-m-d", // Specify the date format (check Flatpickr docs for options)
-    maxDate: new Date(2025, 11, 1), // Set the maximum selectable date
-    minDate: "today",     // Set the minimum selectable date
-    disableMobile: true // Disable the mobile-specific UI.
+    dateFormat: "Y-m-d", 
+    maxDate: new Date(2025, 11, 1), 
+    minDate: "today",     
+    disableMobile: true 
     });
 
     flatpickr("#endDate", {
-    minDate: "today",     // Set the minimum selectable date
-    dateFormat: "Y-m-d", // Specify the date format (check Flatpickr docs for options)
-    maxDate: new Date(2025, 11, 1), // Set the maximum selectable date
-    disableMobile: true // Disable the mobile-specific UI.
+    minDate: "today",     
+    dateFormat: "Y-m-d", 
+    maxDate: new Date(2025, 11, 1), 
+    disableMobile: true 
     });
     
     //calculate total price based on selected dates
     function calculateTotal() {
-        const startDateInput = document.getElementById('startDate');
-        const endDateInput = document.getElementById('endDate');
-        const totalPriceDisplay = document.getElementById('totalPrice');
-        const checkoutTotalPrice = document.getElementById('checkoutTotalPrice');
-        
-        const pricePerDay = <?php echo $productPrice; ?>; // price from PHP
-        const startDate = new Date(startDateInput.value);
-        const endDate = new Date(endDateInput.value);
-        
-        if (startDate && endDate && startDate <= endDate) {
-            const timeDifference = endDate - startDate;
-            const daysDifference = Math.ceil(timeDifference / (1000 * 3600 * 24)); // Convert to days
-            const totalPrice = daysDifference * pricePerDay;
-            totalPriceDisplay.textContent = '₱' + totalPrice;
-            checkoutTotalPrice.textContent = '₱' + totalPrice;
-        } else {
-            totalPriceDisplay.textContent = '₱' + pricePerDay; 
-            checkoutTotalPrice.textContent = '₱' + pricePerDay;
-        }
-    }
+    const startDateInput = document.getElementById('startDate');
+    const endDateInput = document.getElementById('endDate');
+    const totalPriceDisplay = document.getElementById('totalPrice');
+    const checkoutTotalPrice = document.getElementById('checkoutTotalPrice');
+    const displayStartDate = document.getElementById('displayStartDate');
+    const displayEndDate = document.getElementById('displayEndDate');
+    
+    const pricePerDay = <?php echo $productPrice; ?>; // price from PHP
+    const startDate = new Date(startDateInput.value);
+    const endDate = new Date(endDateInput.value);
+    
+    if (startDateInput.value && endDateInput.value && startDate <= endDate) {
+        const timeDifference = endDate - startDate;
+        const daysDifference = Math.ceil(timeDifference / (1000 * 3600 * 24)); // Convert to days
+        const totalPrice = daysDifference * pricePerDay;
+        totalPriceDisplay.textContent = '₱' + totalPrice;
+        checkoutTotalPrice.textContent = '₱' + totalPrice;
 
-    //event listeners to date inputs
-    document.getElementById('startDate').addEventListener('change', calculateTotal);
-    document.getElementById('endDate').addEventListener('change', calculateTotal);
+        // Update displayed dates
+        displayStartDate.textContent = startDateInput.value;
+        displayEndDate.textContent = endDateInput.value;
+
+        // Show the selected dates
+        document.getElementById('selectedDates').style.display = 'block';
+    } else {
+        totalPriceDisplay.textContent = '₱' + pricePerDay; 
+        checkoutTotalPrice.textContent = '₱' + pricePerDay;
+
+        // Reset displayed dates
+        displayStartDate.textContent = 'None';
+        displayEndDate.textContent = 'None';
+
+        // Hide the selected dates
+        document.getElementById('selectedDates').style.display = 'none';
+    }
+}
+
+// Event listeners to date inputs
+document.getElementById('startDate').addEventListener('change', calculateTotal);
+document.getElementById('endDate').addEventListener('change', calculateTotal);
     </script>
 
 </html>
