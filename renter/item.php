@@ -118,10 +118,10 @@
                 </div>
 
                 <div class="d-flex gap-3 mb-4">
-                    <button type="button" class="btn rounded-pill shadow-sm btn-light px-3 border ms-auto" href="">
+                    <button type="button" class="px-3 py-2 btn rounded-pill shadow-sm btn-light px-3 border ms-auto" href="">
                         <i class="bi bi-bag-plus pe-1"></i>
                         Add to Cart</button>
-                    <button type="button" class="btn rounded-pill shadow-sm btn-success d-flex align-items-center gap-2" href="checkout.php">
+                    <button type="button" class="px-3 py-2 btn rounded-pill shadow-sm btn-success d-flex align-items-center gap-2" href="checkout.php">
                         Checkout<span class="mb-0" id="checkoutTotalPrice">₱<?php echo $productPrice; ?></span>
                     </button>
                 </div>
