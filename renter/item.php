@@ -80,7 +80,10 @@
                     <h5 class="pe-2">Rentals</h5>
                 </div>
 
-                <h3 class="bg-light-subtle text-success fw-bold p-2 mt-3 " style="width: 400px;">₱200</h3>
+                <?php $productPrice = 200; ?>
+                <h3 class="bg-light-subtle text-success fw-bold p-2 mt-3 " style="width: 400px;" id="totalPrice">
+                    ₱<?php echo $productPrice; ?>
+                </h3>
                 
                 <div class="d-flex gap-2 mt-4 mb-2 align-items-center">
                     <h6 class="me-5 text-body-secondary">Condition</h6>  
@@ -105,7 +108,7 @@
                     </div>                        
                 </div>
 
-                <div class="d-flex mb-2">
+                <div class="d-flex mb-4">
                     <h6 class="text-body-secondary" style="margin-right: 70px;">Reserve</h6>  
                     <div class="d-flex">
                         <input class="border border-success border-1 rounded-start px-2 text-success" type="text" id="startDate" placeholder="Start Date" style="width: 100px;">
@@ -114,8 +117,14 @@
                     
                 </div>
 
-                <button type="button" class="btn bg-light border" href="">Add to Cart</button>
-                <button type="button" class="btn btn-success" href="checkout.php">Checkout</button>
+                <div class="d-flex gap-3 mb-4">
+                    <button type="button" class="btn rounded-pill shadow-sm btn-light px-3 border ms-auto" href="">
+                        <i class="bi bi-bag-plus pe-1"></i>
+                        Add to Cart</button>
+                    <button type="button" class="btn rounded-pill shadow-sm btn-success d-flex align-items-center gap-2" href="checkout.php">
+                        Checkout<span class="mb-0" id="checkoutTotalPrice">₱<?php echo $productPrice; ?></span>
+                    </button>
+                </div>
             </div>
             
 
@@ -124,7 +133,7 @@
 
     <footer class="">
         <div class="d-flex flex-column flex-sm-row justify-content-between py-2 border-top">
-            <p>© 2024 Rentbox. All rights reserved.</p>
+            <p class="ps-3">© 2024 Rentbox. All rights reserved.</p>
             <ul class="list-unstyled d-flex pe-3">
             <li class="ms-3"><a href=""><i class="bi bi-facebook text-body"></i></a></li>
             <li class="ms-3"><a href=""><i class="bi bi-twitter-x text-body"></i></a></li>
@@ -151,16 +160,44 @@
  
     flatpickr("#startDate", {
     dateFormat: "Y-m-d", // Specify the date format (check Flatpickr docs for options)
+    maxDate: new Date(2025, 11, 1), // Set the maximum selectable date
     minDate: "today",     // Set the minimum selectable date
     disableMobile: true // Disable the mobile-specific UI.
     });
 
     flatpickr("#endDate", {
+    minDate: "today",     // Set the minimum selectable date
     dateFormat: "Y-m-d", // Specify the date format (check Flatpickr docs for options)
     maxDate: new Date(2025, 11, 1), // Set the maximum selectable date
     disableMobile: true // Disable the mobile-specific UI.
     });
     
+    //calculate total price based on selected dates
+    function calculateTotal() {
+        const startDateInput = document.getElementById('startDate');
+        const endDateInput = document.getElementById('endDate');
+        const totalPriceDisplay = document.getElementById('totalPrice');
+        const checkoutTotalPrice = document.getElementById('checkoutTotalPrice');
+        
+        const pricePerDay = <?php echo $productPrice; ?>; // price from PHP
+        const startDate = new Date(startDateInput.value);
+        const endDate = new Date(endDateInput.value);
+        
+        if (startDate && endDate && startDate <= endDate) {
+            const timeDifference = endDate - startDate;
+            const daysDifference = Math.ceil(timeDifference / (1000 * 3600 * 24)); // Convert to days
+            const totalPrice = daysDifference * pricePerDay;
+            totalPriceDisplay.textContent = '₱' + totalPrice;
+            checkoutTotalPrice.textContent = '₱' + totalPrice;
+        } else {
+            totalPriceDisplay.textContent = '₱' + pricePerDay; 
+            checkoutTotalPrice.textContent = '₱' + pricePerDay;
+        }
+    }
+
+    //event listeners to date inputs
+    document.getElementById('startDate').addEventListener('change', calculateTotal);
+    document.getElementById('endDate').addEventListener('change', calculateTotal);
     </script>
 
 </html>
