@@ -18,7 +18,7 @@
                         <i class="fas fa-bars"></i>
                     </button>
                     <!-- Logo -->
-                    <img src="logo-url.png" alt="RentBox Logo" class="logo" style="width: 50px; height: 50px; object-fit: contain;">
+                    <img src="includes/logo-url.png" alt="RentBox Logo" class="logo" style="width: 50px; height: 50px; object-fit: contain;">
                     <h4 class="m-0">RentBox</h4>
                 </div>
                 <div class="d-flex align-items-center">
