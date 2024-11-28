@@ -14,7 +14,7 @@
         <div class="collapse navbar-collapse" id="navbar"> 
                 <a class="ms-auto me-4 nav-link fw-bold" href="">Become an Owner</a> 
             <div class="nav-item dropdown navbar-nav me-5 rounded-bottom-4 border border-0">
-                <button class="btn rounded-pill shadow btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn rounded-pill shadow-sm btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <a><i class="bi bi-person-circle ms-2 text-success" style="font-size: 30px;"></i>
                         <span class=""><i class="bi bi-list ms-1 me-2 text-success" style="font-size: 30px;"></i></span>
                     </a>
@@ -22,7 +22,7 @@
                 <ul class="dropdown-menu dropdown-menu-end mb-0 rounded-bottom-3 shadow border border-0">
                     <li><a class="dropdown-item pe-5" href="">Profile</a></li>
                     <li><a class="dropdown-item pe-5" href="">Rentals</a></li>
-                    <li><a class="dropdown-item pe-5" href="">Cart</a></li>
+                    <li><a class="dropdown-item pe-5" href="cart.php">Cart</a></li>
                     <hr class="dropdown-divider">
                     <li><a class="dropdown-item rounded-bottom-4 pe-5" href="">Lease your gadgets</a></li>
                     <li><a class="dropdown-item pe-5" href="">Help Center</a></li>
