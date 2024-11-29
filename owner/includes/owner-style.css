@@ -67,18 +67,75 @@
     margin-right: 10px;
 }
 
-/* Main content area styling */
+/* Main content area styling DASHBOARD */
 .main-content {
     background-color: #f8f9fa;
     min-height: 100vh;
-    margin-left: 250px;
     padding-top: 75px;
+    /* Decrease the width slightly for a more compact layout */
+    max-width: 95%; /* Decrease width by 5% */
+    margin: 0 auto; /* Center align the content */
     transition: margin-left 0.3s ease-in-out;
+}
+
+.welcome {
+    font-size: 2rem;
+    font-weight: bold;
+}
+.overview {
+    color: #6c757d;
+}
+.card-hover {
+    transition: transform 0.2s;
+}
+.card-hover:hover {
+    transform: scale(1.02);
 }
 
 .main-content.sidebar-collapsed {
     margin-left: 0;
 }
+
+.prod-img-db {
+    width: 60px !important;
+    height: 60px !important;
+    object-fit: cover !important;
+    overflow: hidden;
+    display: block;
+
+    border: .5px solid #000000 !important; /* Light gray border */
+    border-radius: 8px !important; /* Rounded corners */
+}
+
+
+.device-name {
+    font-weight: bold;
+    color: #343a40;
+}
+
+.device-status {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+.text-status {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+
+.title-with-line {
+    border-bottom: 1px solid #dee2e6; /* Match Bootstrap's table border color and thickness */
+    padding-bottom: 4px; /* Slightly reduce spacing between title text and the line */
+    margin-bottom: 0px; /* Reduce space between title and content */
+}
+.card-body .title-with-line {
+    margin-bottom: 12px !important; /* Force consistent spacing across all titles */
+}
+
+
+
 
 /* Overlay styling */
 #overlay {

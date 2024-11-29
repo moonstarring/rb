@@ -18,7 +18,7 @@
                         <i class="fas fa-bars"></i>
                     </button>
                     <!-- Logo -->
-                    <img src="logo-url.png" alt="RentBox Logo" class="logo" style="width: 50px; height: 50px; object-fit: contain;">
+                    <img src="includes/logo-url.png" alt="RentBox Logo" class="logo" style="width: 50px; height: 50px; object-fit: contain;">
                     <h4 class="m-0">RentBox</h4>
                 </div>
                 <div class="d-flex align-items-center">
@@ -51,7 +51,7 @@
                     <!-- Profile Dropdown -->
                     <div class="dropdown">
                         <a href="#" class="text-decoration-none d-flex align-items-center" data-bs-toggle="dropdown">
-                            <img src="profile-pic-url.jpg" alt="User Profile" class="profile-img">
+                            <img src="includes/profile-pic-url.jpg" alt="User Profile" class="profile-img">
                             <div class="d-flex flex-column align-items-start profile-details">
                                 <span class="fw-bold">Gustavo Xavier</span>
                                 <span class="badge bg-warning text-dark">Owner</span>
