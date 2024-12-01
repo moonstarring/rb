@@ -14,7 +14,7 @@
         <div class="collapse navbar-collapse" id="navbar"> 
                 <a class="ms-auto me-4 nav-link fw-bold" href="">Become an Owner</a> 
             <div class="nav-item dropdown navbar-nav me-5 rounded-bottom-4 border border-0">
-                <button class="btn rounded-pill shadow btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn rounded-pill shadow-sm btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <a><i class="bi bi-person-circle ms-2 text-success" style="font-size: 30px;"></i>
                         <span class=""><i class="bi bi-list ms-1 me-2 text-success" style="font-size: 30px;"></i></span>
                     </a>
