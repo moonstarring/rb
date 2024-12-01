@@ -22,31 +22,145 @@
                     <h4 class="m-0">RentBox</h4>
                 </div>
                 <div class="d-flex align-items-center">
-                    <!-- Messages Dropdown -->
-                    <div class="dropdown me-3">
-                        <a href="#" class="text-decoration-none d-flex align-items-center" data-bs-toggle="dropdown">
-                            <i class="fas fa-comment"></i> <span class="ms-2">Messages</span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end p-3" style="width: 300px;">
-                            <li class="fw-bold mb-2">Recent Messages</li>
-                            <li><a href="#" class="dropdown-item">John Doe: Hi there!</a></li>
-                            <li><a href="#" class="dropdown-item">Jane Smith: Check this out...</a></li>
-                            <li><a href="#" class="dropdown-item text-muted">View All Messages</a></li>
-                        </ul>
+                <!-- Messages Dropdown -->
+                <div class="dropdown me-3">
+                    <a href="#" class="text-decoration-none d-flex align-items-center" data-bs-toggle="dropdown">
+                        <i class="fas fa-comment fs-5"></i> <span class="ms-2">Messages</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end p-3 shadow message-drawer" style="width: 280px; height: 450px; overflow-y: auto;">
+                        <li class="fw-bold mb-2">Recent Messages</li>
+                        
+                        <!-- Sample messages with consistent avatar size -->
+                        <li class="message-item d-flex align-items-center mb-3">
+                            <div class="avatar-container">
+                                <img src="includes/user1.jpg" alt="Juan dela Cruz" class="avatar">
+                            </div>
+                            <div>
+                                <p class="mb-0 fw-bold">Juan dela Cruz</p>
+                                <small class="text-muted">Hi, I'm interested in renting your gadget. Is it available?</small>
+                            </div>
+                        </li>
+                        <li class="message-item d-flex align-items-center mb-3">
+                            <div class="avatar-container">
+                                <img src="includes/user2.jpg" alt="Lena Page" class="avatar">
+                            </div>
+                            <div>
+                                <p class="mb-0 fw-bold">Lena Page</p>
+                                <small class="text-muted">Would it be possible to extend the rental period?</small>
+                            </div>
+                        </li>
+                        <li class="message-item d-flex align-items-center mb-3">
+                            <div class="avatar-container">
+                                <img src="includes/user3.jpg" alt="Devin Harmon" class="avatar">
+                            </div>
+                            <div>
+                                <p class="mb-0 fw-bold">Devin Harmon</p>
+                                <small class="text-muted">What's the earliest I can pick up the gadget?</small>
+                            </div>
+                        </li>
+                        <li class="message-item d-flex align-items-center mb-3">
+                            <div class="avatar-container">
+                                <img src="includes/user4.jpg" alt="Eula Horton" class="avatar">
+                            </div>
+                            <div>
+                                <p class="mb-0 fw-bold">Eula Horton</p>
+                                <small class="text-muted">Hi! I just made the payment, can you confirm?</small>
+                            </div>
+                        </li>
+                        <li class="message-item d-flex align-items-center mb-3">
+                            <div class="avatar-container">
+                                <img src="includes/user5.jpg" alt="Victoria Perez" class="avatar">
+                            </div>
+                            <div>
+                                <p class="mb-0 fw-bold">Victoria Perez</p>
+                                <small class="text-muted">Are there any accessories included with the gadget?</small>
+                            </div>
+                        </li>
+                        <li class="message-item d-flex align-items-center mb-3">
+                            <div class="avatar-container">
+                                <img src="includes/user6.jpg" alt="Cora Medina" class="avatar">
+                            </div>
+                            <div>
+                                <p class="mb-0 fw-bold">Cora Medina</p>
+                                <small class="text-muted">How do we arrange the handover for the gadget?</small>
+                            </div>
+                        </li>
+
+                        <!-- "View All Messages" Link (Positioned Below the List) -->
+                        <li class="text-center mt-3"><a href="#" class="text-decoration-none text-primary fw-bold">View All Messages</a></li>
+                    </ul>
+                </div>
+
+
+
+            <!-- Notifications Dropdown -->
+            <div class="dropdown me-3">
+                <a href="#" class="text-decoration-none d-flex align-items-center" data-bs-toggle="dropdown">
+                    <i class="fas fa-bell fs-5"></i> <span class="ms-2">Notifications</span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end p-3 shadow notification-drawer" style="width: 280px; height: 500px; overflow-y: auto;">
+                    <div class="d-flex justify-content-between mb-3">
+                        <a href="#" class="text-decoration-none fw-bold active-tab">All</a>
+                        <a href="#" class="text-decoration-none ms-4 text-muted">Unread</a>
                     </div>
 
-                    <!-- Notifications Dropdown -->
-                    <div class="dropdown me-3">
-                        <a href="#" class="text-decoration-none d-flex align-items-center" data-bs-toggle="dropdown">
-                            <i class="fas fa-bell"></i> <span class="ms-2">Notifications</span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end p-3" style="width: 300px;">
-                            <li class="fw-bold mb-2">Notifications</li>
-                            <li><a href="#" class="dropdown-item">You have a new rental request</a></li>
-                            <li><a href="#" class="dropdown-item">Gadget returned successfully</a></li>
-                            <li><a href="#" class="dropdown-item text-muted">View All Notifications</a></li>
-                        </ul>
-                    </div>
+                    <!-- Sample notifications (repeat to create scrolling effect) -->
+                    <li class="notification-item d-flex align-items-start mb-3">
+                        <i class="fas fa-box me-3 fs-4"></i>
+                        <div>
+                            <p class="mb-0 fw-bold">Transaction Updates</p>
+                            <small class="text-muted">Congratulations! Your gadget has been requested for rent. Please confirm the rental to proceed.</small>
+                            <div class="text-muted"><small>1 hr ago</small></div>
+                        </div>
+                    </li>
+                    <li class="notification-item d-flex align-items-start mb-3">
+                        <i class="fas fa-shield-alt me-3 fs-4"></i>
+                        <div>
+                            <p class="mb-0 fw-bold">Safety Guide</p>
+                            <small class="text-muted">Guide: Learn how to conduct a safe and secure transaction.</small>
+                            <div class="text-muted"><small>2 days ago</small></div>
+                        </div>
+                    </li>
+                    <li class="notification-item d-flex align-items-start mb-3">
+                        <i class="fas fa-box-open me-3 fs-4"></i>
+                        <div>
+                            <p class="mb-0 fw-bold">First Gadget Listed</p>
+                            <small class="text-muted">Your first gadget has been successfully listed. Start accepting rentals!</small>
+                            <div class="text-muted"><small>2 days ago</small></div>
+                        </div>
+                    </li>
+                    <li class="notification-item d-flex align-items-start mb-3">
+                        <i class="fas fa-user-check me-3 fs-4"></i>
+                        <div>
+                            <p class="mb-0 fw-bold">Profile Update Complete</p>
+                            <small class="text-muted">Your profile has been updated successfully.</small>
+                            <div class="text-muted"><small>1 week ago</small></div>
+                        </div>
+                    </li>
+                    <li class="notification-item d-flex align-items-start mb-3">
+                        <i class="fas fa-user-plus me-3 fs-4"></i>
+                        <div>
+                            <p class="mb-0 fw-bold">Complete Your Profile</p>
+                            <small class="text-muted">Ensure your profile is fully set up to enhance trust and visibility.</small>
+                            <div class="text-muted"><small>2 weeks ago</small></div>
+                        </div>
+                    </li>
+                    <li class="notification-item d-flex align-items-start mb-3">
+                        <i class="fas fa-check-circle me-3 fs-4"></i>
+                        <div>
+                            <p class="mb-0 fw-bold">Account Verified</p>
+                            <small class="text-muted">Your account is now verified. You can start listing gadgets for rent!</small>
+                            <div class="text-muted"><small>2 weeks ago</small></div>
+                        </div>
+                    </li>
+
+                    <!-- "View All Notifications" Link (Positioned Below the List) -->
+                    <li class="text-center mt-3"><a href="#" class="text-decoration-none text-primary fw-bold">View All Notifications</a></li>
+                </ul>
+            </div>
+
+
+
 
                     <!-- Profile Dropdown -->
                     <div class="dropdown">
