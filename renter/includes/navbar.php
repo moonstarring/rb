@@ -1,9 +1,10 @@
 <link rel="stylesheet" href="../vendor/bootstrap-5.3.3/dist/css/bootstrap.min.css">
 <style>
+    * { font-family: 'Poppins', sans-serif; }
 </style>
 <nav class="navbar navbar-expand-lg bg-body pt-3 pb-3" aria-label="navbar">
     <div class="container-fluid">
-        <a href="\">
+        <a href="..\">
             <img class="ms-5 my-auto mt-1" src="../images/rb logo text colored.png" href="index.php" alt="Logo"  height="50px">
         </a>
 

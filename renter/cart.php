@@ -17,27 +17,31 @@
   <hr class="m-0 p-0 opacity-25">
   
   <div class="bg-body-secondary p-4 container-fluid">      
-    <main class="bg-body mx-3 rounded-5 d-flex mb-5 container-fluid">
+    <main class="bg-body rounded-5 d-flex mb-5 container-fluid">
    
-      <div class="container-fluid mt-5 mx-5 justify-content-between">
+      <div class="container-fluid mt-5 justify-content-between">
         <div class="row">
-            <div class="">
+            <div class="col">
+
+                <!-- Title -->
                 <div class="d-flex flex-wrap rounded justify-content-between bg-body-secondary">
                     <h5 class="my-2 ms-3 text-success ps-3">Your Cart</h5>
-                    <div class="" href="">
+                    <div class="d-flex" href="">
                         <button class="d-flex btn btn-outline-light align-items-center m-0 border-0 rounded-start-0">
                             <i class="bi bi-caret-left-fill text-success pe-2 fs-6"></i>
                             <h6 class="mb-0 text-success">Continue shopping</h6>
                         </button>
                     </div>       
                 </div>
+
                 <!-- Item-->
                 <div class="d-sm-flex my-4 pb-4 border-bottom border">
+                    <!-- Image -->
                     <div class="d-block d-sm-flex text-sm-left me-5">
                         <a class="mx-auto mr-sm-4" href="#">
                             <img src="includes/images/laptop.png" alt="..." class="img-thumbnail border-2 " style="object-fit:contain; width: 240px; height: 240px;">
                         </a>
-                        <div class="ps-3 pt-2 me-5">
+                        <div class="ps-3 pt-2 me-5 border">
                             <a href="item.php" class="text-decoration-none fw-bold text-dark border-0 pb-0 fs-3 text-start">ACER Aspire 3</a>
                             <div class="d-flex gap-3 align-items-end mt-2">
                                 <small class="text-body-secondary">Condition</small>  
@@ -64,27 +68,27 @@
                                 <div class="d-flex">
                                     <input class="border border-success border-1 rounded-start px-2 text-success" type="text" id="startDate" placeholder="Start Date" style="width: 90px; font-size: 14px;">
                                     <input class="border border-success border-1 rounded-end px-2 text-success" type="text" id="endDate" placeholder="End Date" style="width: 90px; font-size: 14px;">
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="pt-3 mx-5 border">
-                        <div class="form-group mb-2 mx-5 border">
-                            <h5 class="text-center fw-bold" for="quantity1">Quantity</h5>
-                            <div class="d-flex">
-                                <button class="btn border-success border-end-0 rounded-end-0"><i class="bi bi-plus text-success "></i></button>
-                                <input class="form-control form-control-sm text-center border-success rounded-0" type="text" id="quantity1" value="1" style="max-width: 40px;">
-                                <button class="btn border-success border-start-0 rounded-start-0"><i class="bi bi-dash text-success "></i></button>
+                        <div class="pt-3 mx-5 border">
+                            <div class="form-group mb-2 mx-5 border">
+                                <h5 class="text-center fw-bold" for="quantity1">Quantity</h5>
+                                <div class="d-flex">
+                                    <button class="btn border-success border-end-0 rounded-end-0"><i class="bi bi-plus text-success "></i></button>
+                                    <input class="form-control form-control-sm text-center border-success rounded-0" type="text" id="quantity1" value="1" style="max-width: 40px;">
+                                    <button class="btn border-success border-start-0 rounded-start-0"><i class="bi bi-dash text-success "></i></button>
+                                </div>
                             </div>
-                        </div>
-                        <div>
 
-                        </div>
-                        <button class="btn btn-outline-danger btn-sm btn-block mb-2 fs-6" type="button">
+                            <button class="btn btn-outline-danger btn-sm btn-block mb-2 fs-6" type="button">
                             <i class="bi bi-trash fs-5"></i>
                             Remove</button>
+                        </div>
                     </div>
                 </div>
+            </div>
                 
             
         
@@ -165,7 +169,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+                </div>
         </div>
     </div>
     </main>
