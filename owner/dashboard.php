@@ -1,23 +1,13 @@
-<!doctype html>
-<html lang="en" data-bs-theme="auto">
-  <head><script src="../assets/js/color-modes.js"></script>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dashboard</title>
-    <link href="../vendor/bootstrap-5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../vendor/font/bootstrap-icons.min.css" rel="stylesheet">
-    <link href="../css/dashboard.css" rel="stylesheet">
-  </head>
-<body class="container-fluid d-flex bg-secondary-subtle ms-0">
+<!DOCTYPE html>
+<html lang="en">
 <?php
-require_once 'side.html';
-?>
-<div class="container-fluid bg-secondary-subtle ms-0">
-  <div class="card m-3">
-  wah
-  </div>
-</div>
+        require_once 'includes/owner-header-sidebar.php';
+    ?>
+    <!-- Main Content Area -->
+    <div id="mainContent" class="main-content">
+                <div class="p-3">
+                    <h5>Main Content Area</h5>
+                </div>
+    </div>
 </body>
-<script src="../vendor/bootstrap-5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </html>
