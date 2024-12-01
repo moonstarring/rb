@@ -70,9 +70,9 @@
             <!-- Sidebar -->
             <div id="sidebar" class="sidebar">
                 <input type="text" class="form-control my-3" placeholder="Search">
-                <a href="#" class="active"><i class="fas fa-tachometer-alt me-2"></i> Dashboard</a>
-                <a href="#"><i class="fas fa-tablet-alt me-2"></i> Gadgets</a>
-                <a href="#"><i class="fas fa-sync-alt me-2"></i> Rentals</a>
+                <a href="../owner/dashboard.php" class="active"><i class="fas fa-tachometer-alt me-2"></i> Dashboard</a>
+                <a href="../owner/gadget.php"><i class="fas fa-tablet-alt me-2"></i> Gadgets</a>
+                <a href="../owner/rentals.php"><i class="fas fa-sync-alt me-2"></i> Rentals</a>
                 <a href="#"><i class="fas fa-file-alt me-2"></i> All reports</a>
                 <a href="#" class="text-danger"><i class="fas fa-sign-out-alt me-2"></i> Log out</a>
             </div>
