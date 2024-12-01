@@ -163,10 +163,7 @@
             </div> 
           </div>
 
-
-
-
-          <div class="col-4">
+        <div class="col-4">
               <div class="card checkout-order-summary">
                   <div class="card-body">
                       <div class="p-3 bg-light mb-3">

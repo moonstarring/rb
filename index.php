@@ -1,3 +1,7 @@
+<?php
+session_start();
+require_once 'db/db.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
