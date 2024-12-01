@@ -63,7 +63,7 @@
 
             <?php $productPrice = 200; ?>
             <div class="container-fluid">
-                <p>Link/Link/Link/TBA</p>
+                
                 <div class="d-flex align-items-end gap-2 mb-2">
                     <h1>Product Name</h1>  
                     <h6 class="text-body-secondary pb-1">Laptop</h6>  
@@ -122,13 +122,18 @@
                     
                 </div>
 
-                <div class="d-flex gap-3 mb-4">
-                    <button type="button" class="px-3 py-2 btn rounded-pill shadow-sm btn-light px-3 border ms-auto" href="">
-                        <i class="bi bi-bag-plus pe-1"></i>
-                        Add to Cart</button>
-                    <button type="button" class="px-3 py-2 btn rounded-pill shadow-sm btn-success d-flex align-items-center gap-2" >
-                        <a href="checkout.php" class="text-decoration-none text-white">Checkout<span class="mb-0 ps-1 fw-bold" id="checkoutTotalPrice">₱<?php echo $productPrice; ?></span></a>
-                    </button>
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex gap-2">
+                        <img src="./includes/images/laptop.png" class="border rounded-circle object-fit-fill" alt="pfp" height="40px" width="40px">
+                    </div>
+                    <div class="d-flex gap-3 mb-4">
+                        <button type="button" class="px-3 py-2 btn rounded-pill shadow-sm btn-light px-3 border ms-auto" href="">
+                            <i class="bi bi-bag-plus pe-1"></i>
+                            Add to Cart</button>
+                        <button type="button" class="px-3 py-2 btn rounded-pill shadow-sm btn-success d-flex align-items-center gap-2" >
+                            <a href="checkout.php" class="text-decoration-none text-white">Checkout<span class="mb-0 ps-1 fw-bold" id="checkoutTotalPrice">₱<?php echo $productPrice; ?></span></a>
+                        </button>
+                    </div>
                 </div>
             </div>
             

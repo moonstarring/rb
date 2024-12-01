@@ -4,7 +4,7 @@ class Database{
     private $host = 'localhost';
     private $username = 'root';
     private $password = '';
-    private $database = 'project_name';
+    private $database = 'project';
     protected $connection;
 
     function connect(){
