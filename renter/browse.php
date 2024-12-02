@@ -7,7 +7,13 @@
         <link rel="icon" type="image/png" href="../images/rb logo white.png">
         <link href="vendor/bootstrap-5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="../vendor/font/bootstrap-icons.css">
-        <link rel="stylesheet" href="other.css">
+        <style>
+            .card:hover {
+                transform: scale(1.01); 
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                transition: transform 0.1s ease, box-shadow 0.1s ease;
+                }
+        </style>
     </head>
     <body>
         <?php
@@ -39,7 +45,7 @@
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
                   <div class="col">
-                      <a href="" class="card rounded-5 text-decoration-none">
+                      <a href="item.php" class="card rounded-5 text-decoration-none">
                       <img src="../images/laptop.png" class="bd-placeholder-img rounded-top-5 card-img-top" alt="item" width="100%" height="255px" style="object-fit: cover;">
                       <div class="card-body">
                           <div class="d-flex justify-content-between align-items-center">
