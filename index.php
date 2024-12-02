@@ -1,3 +1,19 @@
+<?php
+session_start();
+require_once 'db/db.php';
+
+if (isset($_SESSION['id'])) {
+    if ($_SESSION['role'] === 'No') {
+        header('Location: renter/browse.php');
+        exit();
+    } elseif ($_SESSION['role'] === 'Yes') {
+        header('Location: owner/dashboard.php');
+        exit();
+    }
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>

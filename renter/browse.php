@@ -7,7 +7,13 @@
         <link rel="icon" type="image/png" href="../images/rb logo white.png">
         <link href="vendor/bootstrap-5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="../vendor/font/bootstrap-icons.css">
-        <link rel="stylesheet" href="other.css">
+        <style>
+            .card:hover {
+                transform: scale(1.01); 
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                transition: transform 0.1s ease, box-shadow 0.1s ease;
+                }
+        </style>
     </head>
     <body>
         <?php
