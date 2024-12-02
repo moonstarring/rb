@@ -7,14 +7,14 @@
         <link rel="icon" type="image/png" href="../images/rb logo white.png">
         <link href="vendor/bootstrap-5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="../vendor/font/bootstrap-icons.css">
-        <link rel="stylesheet" href="carousel.css">
+        <link rel="stylesheet" href="../vendor/flatpickr.min.css">
         <link rel="stylesheet" href="../other.css">
     </head>
     <body>
     <?php
         require_once 'includes/navbar.php';
     ?>
-    <!-- <hr class="m-0 p-0"> -->
+    <hr class="m-0 p-0 opacity-25">
     <div class="z-3 position-absolute top-0" style="margin-left: 35%;">
         <form class="d-flex my-4 " style="width:400px;">
             <input class="form-control input-group-text shadow-sm rounded-pill me-2 border" type="text" placeholder="Search" id="searchInput"/>
@@ -25,7 +25,7 @@
     </div>
 
     <div class="bg-body-secondary p-4">      
-        <main class="bg-body mx-3 p-5 rounded-5 d-flex flex-row">
+        <main class="bg-body mx-3 p-5 rounded-5 d-flex flex-row mb-5">
             
         <div id="carouselIndicator" class="carousel carousel-dark slide me-3">
             <div class="carousel-indicators">
@@ -44,9 +44,6 @@
                 <img src="includes/images/laptop.png" alt="..." class="" style="object-fit:contain; width:600px; height:400px;">
                 </div>
             </div>
-            <div class="d-flex">
-                
-            </div>
             
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicator" data-bs-slide="prev">
                 <div class="d-flex align-items-center position-absolute top-0" style="width: auto; height: 400px;">
@@ -64,13 +61,25 @@
         </div>
 
 
-
+            <?php $productPrice = 200; ?>
             <div class="container-fluid">
-                <p>Link/Link/Link/TBA</p>
+                
                 <div class="d-flex align-items-end gap-2 mb-2">
                     <h1>Product Name</h1>  
                     <h6 class="text-body-secondary pb-1">Laptop</h6>  
                 </div>
+<<<<<<< HEAD
+                
+                <div class="gap-2 mb-2">
+                    <div class="d-flex">
+                    <h5 class="pe-2">5</h5>
+                    <i class="bi bi-star-fill text-warning border-end pe-2"></i>
+
+                    <h5 class="text-primary ps-2 pe-2">20</h5>
+                    <h5 class="border-end pe-2">Ratings</h5>
+
+                    <h5 class="text-success ps-2 pe-2">21</h5>
+=======
 
                 <div class="d-flex gap-2 mb-2">
                     <a href=""><h5>5</h5></a>
@@ -80,14 +89,46 @@
                     <h5 class="border-end pe-2">Ratings</h5>
 
                     <a href=""><h5 class="text-primary">21</h5></a>
+>>>>>>> d9c33fb7af72ffb9360004f6c9d69672aca205f7
                     <h5 class="pe-2">Rentals</h5>
                 </div>
 
-                <h3 class="bg-light-subtle text-success fw-bold p-2 mt-3 " style="width: 400px;">₱200</h3>
+<<<<<<< HEAD
+                <div class="d-flex flex-row gap-2 mb-2">
+                <h6 class="mt-3">Condition</h6>    
+                    <h5 class="border rounded bg-outline-success text-success">Good</h5>
+                    <h5 class="border rounded bg-outline-success text-success">Good</h5>
+                    <h5 class="border rounded bg-outline-success text-success">Good</h5>
+                </div>
+                <div class="d-flex gap-5">
+                    <div class="mb-3">
+                        <h5>Specifications:</h5>
+                        <h6>Specs</h6>
+                        <h6>Specs</h6>
+                        <h6>Specs</h6>
+                        <h6>Specs</h6>
+                    </div>
+                    <div class="mb-2">
+                        <h5>Accessories:</h5>
+                        <h6>Charger</h6>
+                        <h6>Mouse</h6>
+                        <h6>Headphoness</h6>
+                    </div>
+=======
+                <div class="bg-light d-flex align-items-end rounded-3 p-3" style="width: 550px;">
+                    <h3 class="text-success fw-bold pe-2 mb-0" id="totalPrice">
+                        ₱<?php echo $productPrice; ?>
+                    </h3>
+                    <small id="selectedDates" class="text-body-secondary mb-0" style="display: none;">
+                        Start Date: <span id="displayStartDate">None</span>, End Date: <span id="displayEndDate">None</span>
+                    </small>
+                </div>
+                
                 
                 <div class="d-flex gap-2 mt-4 mb-2 align-items-center">
                     <h6 class="me-5 text-body-secondary">Condition</h6>  
                     <p class="mb-0 border rounded border-success px-2 py-1 text-success">Good</p>
+>>>>>>> d9c33fb7af72ffb9360004f6c9d69672aca205f7
                 </div>
 
                 <div class="d-flex gap-2 mt-2 mb-2 align-items-center">
@@ -108,22 +149,37 @@
                     </div>                        
                 </div>
 
-                <h5>Rental Period</h5>
-                <div class="d-flex gap-2 justify-content-start my-1">
-                    <button class="btn btn-light rounded-pill px-3" type="button">Light</button>
+                <div class="d-flex mb-4">
+                    <h6 class="text-body-secondary" style="margin-right: 70px;">Reserve</h6>  
+                    <div class="d-flex">
+                        <input class="border border-success border-1 rounded-start px-2 text-success" type="text" id="startDate" placeholder="Start Date" style="width: 100px;">
+                        <input class="border border-success border-1 rounded-end px-2 text-success" type="text" id="endDate" placeholder="End Date" style="width: 100px;">
+                    </div>
+                    
                 </div>
 
-                <button type="button" class="btn bg-light border" href="">Add to Cart</button>
-                <button type="button" class="btn btn-success" href="checkout.php">Checkout</button>
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex gap-2">
+                        <img src="./includes/images/laptop.png" class="border rounded-circle object-fit-fill" alt="pfp" height="40px" width="40px">
+                    </div>
+                    <div class="d-flex gap-3 mb-4">
+                        <button type="button" class="px-3 py-2 btn rounded-pill shadow-sm btn-light px-3 border ms-auto" href="">
+                            <i class="bi bi-bag-plus pe-1"></i>
+                            Add to Cart</button>
+                        <button type="button" class="px-3 py-2 btn rounded-pill shadow-sm btn-success d-flex align-items-center gap-2" >
+                            <a href="checkout.php" class="text-decoration-none text-white">Checkout<span class="mb-0 ps-1 fw-bold" id="checkoutTotalPrice">₱<?php echo $productPrice; ?></span></a>
+                        </button>
+                    </div>
+                </div>
             </div>
             
 
         </main>
     </div>
 
-    <footer class="">
+    <footer>
         <div class="d-flex flex-column flex-sm-row justify-content-between py-2 border-top">
-            <p>© 2024 Rentbox. All rights reserved.</p>
+            <p class="ps-3">© 2024 Rentbox. All rights reserved.</p>
             <ul class="list-unstyled d-flex pe-3">
             <li class="ms-3"><a href=""><i class="bi bi-facebook text-body"></i></a></li>
             <li class="ms-3"><a href=""><i class="bi bi-twitter-x text-body"></i></a></li>
@@ -133,7 +189,8 @@
     </footer>
 </body>
 <script src="../vendor/bootstrap-5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
+<script src="../vendor/flatpickr.min.js"></script>
+    <script>
     //search input 
     const searchInput = document.getElementById('searchInput');
 
@@ -145,5 +202,64 @@
         this.classList.remove('border-success');
     });
     
-</script>
+    //flatpickr
+ 
+    flatpickr("#startDate", {
+    dateFormat: "Y-m-d", 
+    maxDate: new Date(2025, 11, 1), 
+    minDate: "today",     
+    disableMobile: true 
+    });
+
+    flatpickr("#endDate", {
+    minDate: "today",     
+    dateFormat: "Y-m-d", 
+    maxDate: new Date(2025, 11, 1), 
+    disableMobile: true 
+    });
+    
+    //calculate total price based on selected dates
+    function calculateTotal() {
+    const startDateInput = document.getElementById('startDate');
+    const endDateInput = document.getElementById('endDate');
+    const totalPriceDisplay = document.getElementById('totalPrice');
+    const checkoutTotalPrice = document.getElementById('checkoutTotalPrice');
+    const displayStartDate = document.getElementById('displayStartDate');
+    const displayEndDate = document.getElementById('displayEndDate');
+    
+    const pricePerDay = <?php echo $productPrice; ?>; // price from PHP
+    const startDate = new Date(startDateInput.value);
+    const endDate = new Date(endDateInput.value);
+    
+    if (startDateInput.value && endDateInput.value && startDate <= endDate) {
+        const timeDifference = endDate - startDate;
+        const daysDifference = Math.ceil(timeDifference / (1000 * 3600 * 24)); // Convert to days
+        const totalPrice = daysDifference * pricePerDay;
+        totalPriceDisplay.textContent = '₱' + totalPrice;
+        checkoutTotalPrice.textContent = '₱' + totalPrice;
+
+        // Update displayed dates
+        displayStartDate.textContent = startDateInput.value;
+        displayEndDate.textContent = endDateInput.value;
+
+        // Show the selected dates
+        document.getElementById('selectedDates').style.display = 'block';
+    } else {
+        totalPriceDisplay.textContent = '₱' + pricePerDay; 
+        checkoutTotalPrice.textContent = '₱' + pricePerDay;
+
+        // Reset displayed dates
+        displayStartDate.textContent = 'None';
+        displayEndDate.textContent = 'None';
+
+        // Hide the selected dates
+        document.getElementById('selectedDates').style.display = 'none';
+    }
+}
+
+// Event listeners to date inputs
+document.getElementById('startDate').addEventListener('change', calculateTotal);
+document.getElementById('endDate').addEventListener('change', calculateTotal);
+    </script>
+
 </html>

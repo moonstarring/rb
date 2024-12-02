@@ -67,18 +67,164 @@
     margin-right: 10px;
 }
 
-/* Main content area styling */
 .main-content {
-    background-color: #f8f9fa;
-    min-height: 100vh;
-    margin-left: 250px;
-    padding-top: 75px;
-    transition: margin-left 0.3s ease-in-out;
+    background-color: #f8f9fa; /* Background color for the main content */
+    min-height: 100vh; /* Ensure the height fills the viewport */
+    padding-top: 75px; /* Maintain padding at the top */
+    padding-left: 0px; /* Add padding on the left */
+    padding-right: 16px; /* Add padding on the right */
+    margin: 0; /* Remove any centering margins */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    box-sizing: border-box; /* Include padding in the total width calculation */
+}
+
+
+.welcome {
+    font-size: 2rem;
+    font-weight: bold;
+}
+.overview {
+    color: #6c757d;
+}
+
+/* DRAWERS */
+/* Styling for the dropdown drawers */
+/* Styling for the dropdown drawers */
+/* Styling for the dropdown drawers */
+.message-drawer, .notification-drawer {
+    border-radius: 8px; /* Smooth corners for a modern look */
+}
+
+/* Common styles for each message and notification item */
+.message-item, .notification-item {
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+.message-item:hover, .notification-item:hover {
+    background-color: #f1f1f1; /* Highlight on hover */
+    border-radius: 5px;
+}
+
+/* Avatar styling */
+/* Avatar styling for consistent size */
+.avatar-container {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    margin-right: 15px; /* Add spacing between avatar and text */
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #dee2e6;
+}
+
+
+/* Notification and message headers */
+.fw-bold {
+    color: #343a40; /* Stronger color for headings */
+}
+
+/* Tabs at the top of the notification drawer */
+.active-tab {
+    color: #000;
+    text-decoration: underline;
+}
+
+.text-muted {
+    color: #6c757d !important;
+}
+
+/* Center the "View All" links */
+.text-center {
+    text-align: center;
+}
+
+/* Scroll bar styling */
+.message-drawer::-webkit-scrollbar, .notification-drawer::-webkit-scrollbar {
+    width: 5px;
+}
+.message-drawer::-webkit-scrollbar-thumb, .notification-drawer::-webkit-scrollbar-thumb {
+    background: #cccccc;
+    border-radius: 10px;
+}
+
+
+
+.dropdown-menu {
+    overflow: hidden;
+}
+
+/* Arrow icon styling for consistency */
+.fa-chevron-right {
+    color: #6c757d;
+}
+
+.card-hover {
+    transition: transform 0.2s;
+}
+.card-hover:hover {
+    transform: scale(1.02);
 }
 
 .main-content.sidebar-collapsed {
     margin-left: 0;
 }
+
+
+/* DASHBOARD */
+
+.prod-img-db {
+    width: 60px !important;
+    height: 60px !important;
+    object-fit: cover !important;
+    overflow: hidden;
+    display: block;
+
+    border: .5px solid #000000 !important; /* Light gray border */
+    border-radius: 8px !important; /* Rounded corners */
+}
+
+.device-name {
+    font-weight: bold;
+    color: #343a40;
+    margin-bottom: 4px;
+}
+
+.device-status {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+.text-status {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.title-with-line {
+    border-bottom: 1px solid #dee2e6; /* Match Bootstrap's table border color and thickness */
+    padding-bottom: 8px;
+    margin-bottom: 0px;
+}
+
+.d-flex.align-items-center.mb-2 {
+    margin-top: 16px;
+    margin-bottom: 16px !important;
+}
+
+.d-flex.align-items-center.mb-2:first-child {
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 4px;
+}
+
+
+
+
+
 
 /* Overlay styling */
 #overlay {
@@ -107,7 +253,8 @@
     }
 
     .main-content {
-        margin-left: 0;
+        
+        padding-left: 16px;
     }
 
     /* Hide text elements in header */
