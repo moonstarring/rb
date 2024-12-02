@@ -68,7 +68,6 @@
                     <h1>Product Name</h1>  
                     <h6 class="text-body-secondary pb-1">Laptop</h6>  
                 </div>
-<<<<<<< HEAD
                 
                 <div class="gap-2 mb-2">
                     <div class="d-flex">
@@ -79,21 +78,9 @@
                     <h5 class="border-end pe-2">Ratings</h5>
 
                     <h5 class="text-success ps-2 pe-2">21</h5>
-=======
-
-                <div class="d-flex gap-2 mb-2">
-                    <a href=""><h5>5</h5></a>
-                    <i class="bi bi-star-fill text-warning border-end pe-2"></i>
-
-                    <a href=""><h5 class="text-primary">20</h5></a>
-                    <h5 class="border-end pe-2">Ratings</h5>
-
-                    <a href=""><h5 class="text-primary">21</h5></a>
->>>>>>> d9c33fb7af72ffb9360004f6c9d69672aca205f7
                     <h5 class="pe-2">Rentals</h5>
                 </div>
 
-<<<<<<< HEAD
                 <div class="d-flex flex-row gap-2 mb-2">
                 <h6 class="mt-3">Condition</h6>    
                     <h5 class="border rounded bg-outline-success text-success">Good</h5>
@@ -114,21 +101,6 @@
                         <h6>Mouse</h6>
                         <h6>Headphoness</h6>
                     </div>
-=======
-                <div class="bg-light d-flex align-items-end rounded-3 p-3" style="width: 550px;">
-                    <h3 class="text-success fw-bold pe-2 mb-0" id="totalPrice">
-                        ₱<?php echo $productPrice; ?>
-                    </h3>
-                    <small id="selectedDates" class="text-body-secondary mb-0" style="display: none;">
-                        Start Date: <span id="displayStartDate">None</span>, End Date: <span id="displayEndDate">None</span>
-                    </small>
-                </div>
-                
-                
-                <div class="d-flex gap-2 mt-4 mb-2 align-items-center">
-                    <h6 class="me-5 text-body-secondary">Condition</h6>  
-                    <p class="mb-0 border rounded border-success px-2 py-1 text-success">Good</p>
->>>>>>> d9c33fb7af72ffb9360004f6c9d69672aca205f7
                 </div>
 
                 <div class="d-flex gap-2 mt-2 mb-2 align-items-center">
