@@ -3,8 +3,6 @@
 require_once 'includes/db_connect.php';
 require_once 'includes/product.class.php';
 
-$products = new Products();
-$allProducts = $products->fetch();
 
 $formattedProducts = [];
 
