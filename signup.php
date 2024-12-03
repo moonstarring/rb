@@ -25,7 +25,7 @@
         validate_cpw($user->password, $_POST['confirmpassword']) &&
         validate_email($user->email) && !$user->is_email_exist()){
             if($user->add()){
-                $message = 'Welcome!';
+                header("Location: renter/browse.php");
             }else{
                 echo 'An error occured while adding in the database.';
             }
@@ -64,38 +64,28 @@
                 <div class="card mx-auto mb-5 border border-0" style="width:500px;">
                     <div class="card-body d-flex flex-column justify-content-center">
                         <h5 class="text-center mt-4 fw-bold">Sign Up</h5>
-                        <?php
-                            if(isset($_POST['signup']) && isset($message)){
-                        ?>
-                                <div class="alert alert-success my-1 mb-3 text-center" role="alert">
-                                    <?= $message ?>
-                                </div>
-                        <?php
-                            }
-                        ?>
-                        <!-- <h6 class="text-center mb-4">Welcome!</h6> -->
+                        <h6 class="text-center mb-4">Welcome!</h6>
                        <form action="" method="post">
                         <div class="form-floating mb-3 mx-3" style="font-size: 14px;">
                             <input type="email" class="form-control ps-4 rounded-5" id="email" name="email" placeholder="Email" 
                             value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>">
                             <label for="email" class="ps-4">Email</label>
                             <?php
-                               $new_user = new User();
-                               if(isset($_POST['email'])){
-                                    $new_user->email = htmlentities($_POST['email']);
-                               }else{
-                                    $new_user->email = '';
-                               }
-
-                                if(isset($_POST['email']) && strcmp(validate_email($_POST['email']), 'success') != 0){
-                            ?>
-                                    <p class="text-danger my-1"><?php echo validate_email($_POST['email']) ?></p>
-                            <?php
-                                }else if ($new_user->is_email_exist() && $_POST['email']){
-                            ?>
-                                    <p class="text-danger my-1">Email already exist</p>
-                            <?php      
+                            $new_user = new User();
+                            $email_error = ''; // Initialize error message
+                        
+                            if (isset($_POST['email'])) {
+                                $new_user->email = htmlentities($_POST['email']);  //Set the email for validation only after the POST check.
+                        
+                                if (strcmp(validate_email($_POST['email']), 'success') != 0) {
+                                    $email_error = validate_email($_POST['email']); //Store the error message
+                                } else if ($new_user->is_email_exist()) {  //Check for existence *after* validation
+                                    $email_error = "Email already exists";
                                 }
+                            }
+                            if ($email_error){
+                                echo "<p class='text-danger my-1'>$email_error</p>"; //Display the error message
+                            }
                             ?>
                         </div>
                          
