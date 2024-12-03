@@ -2,7 +2,7 @@
 
 require_once 'database.php';
 
-Class Customer{
+Class User{
     //attributes
 
     public $id;
