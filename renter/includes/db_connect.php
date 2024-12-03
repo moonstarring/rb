@@ -1,21 +1,25 @@
 <?php
-$host = 'localhost'; 
-$db   = 'PROJECT';   
-$user = 'root';     
-$pass = '';          
-$charset = 'utf8mb4';
 
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+class Database{
+    private $host = 'localhost';
+    private $username = 'root';
+    private $password = '';
+    private $database = 'project';
+    protected $connection;
 
-$options = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,    
-    PDO::ATTR_EMULATE_PREPARES   => false,                
-];
+    function connect(){
+        try 
+			{
+				$this->connection = new PDO("mysql:host=$this->host;dbname=$this->database", 
+											$this->username, $this->password);
+			} 
+			catch (PDOException $e) 
+			{
+				echo "Connection error " . $e->getMessage();
+			}
+        return $this->connection;
+    }
 
-try {
-    $pdo = new PDO($dsn, $user, $pass, $options);
-} catch (\PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-    exit();
 }
+
+?>

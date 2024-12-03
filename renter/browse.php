@@ -1,3 +1,32 @@
+<?php
+
+require_once 'includes/db_connect.php';
+require_once 'includes/product.class.php';
+
+$products = new Products();
+$allProducts = $products->fetch();
+
+$formattedProducts = [];
+
+foreach ($allProducts as $product) {
+    $formattedProducts[] = [
+        'id' => $product['id'],
+        'owner_id' => $product['owner_id'],
+        'name' => htmlspecialchars($product['name']),
+        'brand' => htmlspecialchars($product['brand']),
+        'description' => htmlspecialchars($product['description']),
+        'rental_price' => number_format($product['rental_price'], 2),
+        'status' => htmlspecialchars($product['status']),
+        'created_at' => $product['created_at'], // Format as needed
+        'updated_at' => $product['updated_at'], // Format as needed
+        'image' => $product['image'],
+        'quantity' => $product['quantity'],
+        'category' => htmlspecialchars($product['category']),
+        'rental_period' => htmlspecialchars($product['rental_period']),
+    ];
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -43,10 +72,11 @@
         <div class="album rounded-4 my-5">
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
-                  <div class="col">
-                      <a href="item.php" class="card rounded-5 text-decoration-none">
-                      <img src="../images/laptop.png" class="bd-placeholder-img rounded-top-5 card-img-top" alt="item" width="100%" height="255px" style="object-fit: cover;">
+                    <?php foreach($allProducts as $product): ?>
+                    
+                    <div class="col">
+                      <a href="item.php?id=<?php echo $product['id']; ?>" class="card rounded-5 text-decoration-none">
+                      <img src="<?php echo $product['image']; ?>" class="bd-placeholder-img rounded-top-5 card-img-top" alt="<?php echo htmlspecialchars($product['name']); ?>" width="100%" height="255px" style="object-fit: cover;">
                       <div class="card-body">
                           <div class="d-flex justify-content-between align-items-center">
                               <div class="d-flex align-items-end">
@@ -67,127 +97,7 @@
                       </div>
                       </a>
                   </div>
-
-                  <div class="col">
-                      <a href="../item.php" class="card rounded-5 text-decoration-none">
-                      <img src="../images/laptop.png" class="bd-placeholder-img rounded-top-5 card-img-top" alt="item" width="100%" height="255px" style="object-fit: cover;">
-                      <div class="card-body">
-                          <div class="d-flex justify-content-between align-items-center">
-                              <div class="d-flex align-items-end">
-                                  <h5 class="card-title mb-0 me-2">ACER Swift 3</h5>
-                                  <small class="text-body-secondary ms-0">Laptop</small>  
-                              </div>
-                              <img class="pfp rounded-circle img-thumbnail" src="../images/pfp.png" alt="pfp" height="40px" width="40px" style="object-fit: contain;">
-                          </div>
-                          <h6 class="card-subtitle mb-2 text-success">PHP 200
-                          <small class="text-body-secondary">/day</small>
-                          </h6>
-                          <div class="d-flex gap-1 align-items-center">
-                              <i class="bi bi-star-fill text-warning"></i>
-                              <small class="text-body-secondary border-end pe-2">5</small>
-                              <i class="bi bi-geo-alt-fill ps-2 text-warning"></i>
-                              <small class="text-body-secondary">Tetuan, Zamboanga City</small>
-                          </div>
-                      </div>
-                      </a>
-                  </div>
-
-                  <div class="col">
-                      <a href="item.php" class="card rounded-5 text-decoration-none">
-                      <img src="../images/laptop.png" class="bd-placeholder-img rounded-top-5 card-img-top" alt="item" width="100%" height="255px" style="object-fit: cover;">
-                      <div class="card-body">
-                          <div class="d-flex justify-content-between align-items-center">
-                              <div class="d-flex align-items-end">
-                                  <h5 class="card-title mb-0 me-2">ACER Swift 3</h5>
-                                  <small class="text-body-secondary ms-0">Laptop</small>  
-                              </div>
-                              <img class="pfp rounded-circle img-thumbnail" src="../images/pfp.png" alt="pfp" height="40px" width="40px" style="object-fit: contain;">
-                          </div>
-                          <h6 class="card-subtitle mb-2 text-success">PHP 200
-                          <small class="text-body-secondary">/day</small>
-                          </h6>
-                          <div class="d-flex gap-1 align-items-center">
-                              <i class="bi bi-star-fill text-warning"></i>
-                              <small class="text-body-secondary border-end pe-2">5</small>
-                              <i class="bi bi-geo-alt-fill ps-2 text-warning"></i>
-                              <small class="text-body-secondary">Tetuan, Zamboanga City</small>
-                          </div>
-                      </div>
-                      </a>
-                  </div>
-
-                  <div class="col">
-                      <a href="" class="card rounded-5 text-decoration-none">
-                      <img src="../images/laptop.png" class="bd-placeholder-img rounded-top-5 card-img-top" alt="item" width="100%" height="255px" style="object-fit: cover;">
-                      <div class="card-body">
-                          <div class="d-flex justify-content-between align-items-center">
-                              <div class="d-flex align-items-end">
-                                  <h5 class="card-title mb-0 me-2">ACER Swift 3</h5>
-                                  <small class="text-body-secondary ms-0">Laptop</small>  
-                              </div>
-                              <img class="pfp rounded-circle img-thumbnail" src="../images/pfp.png" alt="pfp" height="40px" width="40px" style="object-fit: contain;">
-                          </div>
-                          <h6 class="card-subtitle mb-2 text-success">PHP 200
-                          <small class="text-body-secondary">/day</small>
-                          </h6>
-                          <div class="d-flex gap-1 align-items-center">
-                              <i class="bi bi-star-fill text-warning"></i>
-                              <small class="text-body-secondary border-end pe-2">5</small>
-                              <i class="bi bi-geo-alt-fill ps-2 text-warning"></i>
-                              <small class="text-body-secondary">Tetuan, Zamboanga City</small>
-                          </div>
-                      </div>
-                      </a>
-                  </div>
-
-                  <div class="col">
-                      <a href="../item.php" class="card rounded-5 text-decoration-none">
-                      <img src="../images/laptop.png" class="bd-placeholder-img rounded-top-5 card-img-top" alt="item" width="100%" height="255px" style="object-fit: cover;">
-                      <div class="card-body">
-                          <div class="d-flex justify-content-between align-items-center">
-                              <div class="d-flex align-items-end">
-                                  <h5 class="card-title mb-0 me-2">ACER Swift 3</h5>
-                                  <small class="text-body-secondary ms-0">Laptop</small>  
-                              </div>
-                              <img class="pfp rounded-circle img-thumbnail" src="../images/pfp.png" alt="pfp" height="40px" width="40px" style="object-fit: contain;">
-                          </div>
-                          <h6 class="card-subtitle mb-2 text-success">PHP 200
-                          <small class="text-body-secondary">/day</small>
-                          </h6>
-                          <div class="d-flex gap-1 align-items-center">
-                              <i class="bi bi-star-fill text-warning"></i>
-                              <small class="text-body-secondary border-end pe-2">5</small>
-                              <i class="bi bi-geo-alt-fill ps-2 text-warning"></i>
-                              <small class="text-body-secondary">Tetuan, Zamboanga City</small>
-                          </div>
-                      </div>
-                      </a>
-                  </div>
-
-                  <div class="col">
-                      <a href="item.php" class="card rounded-5 text-decoration-none">
-                      <img src="../images/laptop.png" class="bd-placeholder-img rounded-top-5 card-img-top" alt="item" width="100%" height="255px" style="object-fit: cover;">
-                      <div class="card-body">
-                          <div class="d-flex justify-content-between align-items-center">
-                              <div class="d-flex align-items-end">
-                                  <h5 class="card-title mb-0 me-2">ACER Swift 3</h5>
-                                  <small class="text-body-secondary ms-0">Laptop</small>  
-                              </div>
-                              <img class="pfp rounded-circle img-thumbnail" src="../images/pfp.png" alt="pfp" height="40px" width="40px" style="object-fit: contain;">
-                          </div>
-                          <h6 class="card-subtitle mb-2 text-success">PHP 200
-                          <small class="text-body-secondary">/day</small>
-                          </h6>
-                          <div class="d-flex gap-1 align-items-center">
-                              <i class="bi bi-star-fill text-warning"></i>
-                              <small class="text-body-secondary border-end pe-2">5</small>
-                              <i class="bi bi-geo-alt-fill ps-2 text-warning"></i>
-                              <small class="text-body-secondary">Tetuan, Zamboanga City</small>
-                          </div>
-                      </div>
-                      </a>
-                  </div>
-                  
+                  <?php endforeach; ?>
                 </div>
             </div>
         </div>
