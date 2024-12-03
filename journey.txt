@@ -1,7 +1,0 @@
-renter
-index.php
-    signup.php
-        renter/browse.php // select an item
-            renter/item.php //checkout or cart
-                renter/checkout.php 
-                renter/cart.php
