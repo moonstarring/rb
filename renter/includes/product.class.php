@@ -1,6 +1,6 @@
 <?php
 
-require_once '../../db/db.php';
+require_once 'db_connect.php';
 
 Class Products{
     //attributes
