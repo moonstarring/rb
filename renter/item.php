@@ -69,7 +69,7 @@
                     <h6 class="text-body-secondary pb-1">Laptop</h6>  
                 </div>
                 
-                <div class="gap-2 mb-2">
+                <div class="gap-2">
                     <div class="d-flex">
                     <h5 class="pe-2">5</h5>
                     <i class="bi bi-star-fill text-warning border-end pe-2"></i>
@@ -81,26 +81,11 @@
                     <h5 class="pe-2">Rentals</h5>
                 </div>
 
-                <div class="d-flex flex-row gap-2 mb-2">
-                <h6 class="mt-3">Condition</h6>    
-                    <h5 class="border rounded bg-outline-success text-success">Good</h5>
-                    <h5 class="border rounded bg-outline-success text-success">Good</h5>
-                    <h5 class="border rounded bg-outline-success text-success">Good</h5>
-                </div>
-                <div class="d-flex gap-5">
-                    <div class="mb-3">
-                        <h5>Specifications:</h5>
-                        <h6>Specs</h6>
-                        <h6>Specs</h6>
-                        <h6>Specs</h6>
-                        <h6>Specs</h6>
-                    </div>
-                    <div class="mb-2">
-                        <h5>Accessories:</h5>
-                        <h6>Charger</h6>
-                        <h6>Mouse</h6>
-                        <h6>Headphoness</h6>
-                    </div>
+                <div class="d-flex gap-2 mt-5 mb-2 align-items-center">
+                    <h6 class="text-body-secondary" style="margin-right: 20px;">Condition</h6>  
+                    <div class="d-flex align-items-center border rounded border-success px-2 py-1 text-success">
+                        <p class="mb-0 border-success">Good</p>
+                    </div>                        
                 </div>
 
                 <div class="d-flex gap-2 mt-2 mb-2 align-items-center">
