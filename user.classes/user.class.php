@@ -2,7 +2,7 @@
 
 require_once 'database.php';
 
-Class Customer{
+Class User{
     //attributes
 
     public $id;
@@ -24,7 +24,7 @@ Class Customer{
     //Methods
 
     function add(){
-        $sql = "INSERT INTO user (name, email, email_verified_at, password, remember_token, created_at, updated_at, role) VALUES 
+        $sql = "INSERT INTO users (name, email, email_verified_at, password, remember_token, created_at, updated_at, role) VALUES 
         (:name, :email, :email_verified_at, :password, :remember_token, :created_at, :updated_at, :role);";
 
         $query=$this->db->connect()->prepare($sql);
@@ -50,7 +50,7 @@ Class Customer{
     }
 
     function is_email_exist(){
-        $sql = "SELECT * FROM user WHERE email = :email;";
+        $sql = "SELECT * FROM users WHERE email = :email;";
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':email', $this->email);
         if($query->execute()){
