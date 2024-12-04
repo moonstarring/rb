@@ -20,10 +20,10 @@
                     </a>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end mb-0 rounded-bottom-3 shadow border border-0">
-                  <li><a class="dropdown-item fw-bold pe-5" href="signup.php" >Sign Up</a></li>
-                  <li><a class="dropdown-item pe-5" href="login.php">Login</a></li>
-                  <li><a class="dropdown-item rounded-bottom-4 pe-5" href="login.php">Lease your gadgets</a></li>
+                  <li><a class="dropdown-item fw-bold pe-5" href="signup.php" >Profile</a></li>
+                  <li><a class="dropdown-item pe-5" href="login.php">Cart</a></li>
                   <hr class="dropdown-divider">
+                  <li><a class="dropdown-item rounded-bottom-4 pe-5" href="login.php">Lease your gadgets</a></li>
                   <li><a class="dropdown-item pe-5" href="">Help Center</a></li>
                 </ul>
             </div>

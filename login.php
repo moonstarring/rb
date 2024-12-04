@@ -4,8 +4,9 @@
     /*
         if user is login then redirect to authenticated page
     */
-    if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == 'renter'){
+    if (isset($_SESSION['user_id']) && is_numeric($_SESSION['user_id'])){
         header('location: ./renter/browse.php');
+        exit;
     }
 
     //if the login button is clicked
@@ -16,8 +17,9 @@
         $user->email = $_POST['email'];
         $user->password = $_POST['password'];
         if ($user->sign_in_user()){
-            $_SESSION['user'] = 'renter';
+            $_SESSION['user_id'] = $user->id;
             header('location: ./renter/browse.php');
+            exit;
         }else{
             $error =  'Invalid email/password. Try again.';
         }
@@ -34,7 +36,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <title>Rentbox</title>
-        <link rel="icon" type="image/png" href="images\rb logo white.png">
+        <link rel="icon" type="image/png" href="renter/images/rb logo white.png">
         <link href="vendor/bootstrap-5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="vendor/font/bootstrap-icons.css">
     </head>
@@ -43,7 +45,7 @@
     
     <body>
         <?php
-        require_once 'includes\navbar.php';
+        require_once 'includes/navbar.php';
         ?>
         
         <hr class="m-0 p-0">
