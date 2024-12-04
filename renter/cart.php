@@ -7,7 +7,6 @@ if (isset($_GET['renterId']) && isset($_POST['productId'])) { //Get renter ID fr
     $productId = $_POST['productId'];
     $productObj = new Product();
     $success = $productObj->addProductToCart($productId, $renterId);
-    // ... rest of your code ...
 }
 ?>
 
