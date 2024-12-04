@@ -124,11 +124,14 @@
 
                         <div class="d-flex mb-3 mx-4 justify-content-center" style="font-size: 12px;">
                             <p>Have an Account?
-                                <a class="text-secondary" href="renter/browse.php">Log in</a>
+                                <a class="text-secondary" href="login.php">Log in</a>
                             </p>
                         </div>
 
-                        <button type="submit" name="signup" class="btn btn-success just rounded-5 mx-5 my-3 shadow">Create Account</button>
+                        <div class="d-flex mx-4 mb-2 justify-content-center">
+                            <button type="submit" name="signup" class="btn btn-success just rounded-5 shadow">Create Account</button>
+                        </div>
+
                         <div class="d-flex mb-3 mx-4 justify-content-center" style="font-size: 12px;">
                             <p>
                             Signing up for a Rentbox account means you agree to the <a href=""class="text-secondary">Privacy Policy</a> and <a href=""class="text-secondary">Terms of Service</a>

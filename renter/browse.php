@@ -1,30 +1,21 @@
 <?php
+// database.php (or include this in a class)
+$products = getProducts();
+function getProducts(){
+    try {
+        $db = new PDO('mysql:host=localhost;dbname=project', 'root', ''); // Replace with your credentials
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); //Set error handling to exception
 
-require_once 'includes/db_connect.php';
-require_once 'includes/product.class.php';
-
-
-$formattedProducts = [];
-
-foreach ($allProducts as $product) {
-    $formattedProducts[] = [
-        'id' => $product['id'],
-        'owner_id' => $product['owner_id'],
-        'name' => htmlspecialchars($product['name']),
-        'brand' => htmlspecialchars($product['brand']),
-        'description' => htmlspecialchars($product['description']),
-        'rental_price' => number_format($product['rental_price'], 2),
-        'status' => htmlspecialchars($product['status']),
-        'created_at' => $product['created_at'], // Format as needed
-        'updated_at' => $product['updated_at'], // Format as needed
-        'image' => $product['image'],
-        'quantity' => $product['quantity'],
-        'category' => htmlspecialchars($product['category']),
-        'rental_period' => htmlspecialchars($product['rental_period']),
-    ];
+        $stmt = $db->query("SELECT * FROM products");
+        $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $products;
+    } catch (PDOException $e) {
+        error_log("Database error: " . $e->getMessage()); //Log the error for debugging
+        return []; //Return an empty array if there's an error
+    }
 }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -44,7 +35,7 @@ foreach ($allProducts as $product) {
     </head>
     <body>
         <?php
-        require_once 'includes/navbar.php';
+        require_once 'navbar.php';
         ?>
         
         <hr class="m-0 p-0">
@@ -65,25 +56,26 @@ foreach ($allProducts as $product) {
             </div>
         </header>
         <hr>
-
-        <!--items-->
+        
+        <!--items
+        static info = category, time rate, rating, location, owner img
+        -->
         <div class="album rounded-4 my-5">
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    <?php foreach($allProducts as $product): ?>
-                    
+                    <?php foreach ($products as $product): ?>
                     <div class="col">
-                      <a href="item.php?id=<?php echo $product['id']; ?>" class="card rounded-5 text-decoration-none">
-                      <img src="<?php echo $product['image']; ?>" class="bd-placeholder-img rounded-top-5 card-img-top" alt="<?php echo htmlspecialchars($product['name']); ?>" width="100%" height="255px" style="object-fit: cover;">
+                      <a href="item.php?id=<?= $product['id']; ?>" class="card rounded-5 text-decoration-none">
+                      <img src="<?= $product['image']; ?>" class="bd-placeholder-img rounded-top-5 card-img-top" alt="<?= $product['name']; ?>" width="100%" height="255px" style="object-fit: cover;">
                       <div class="card-body">
                           <div class="d-flex justify-content-between align-items-center">
                               <div class="d-flex align-items-end">
-                                  <h5 class="card-title mb-0 me-2">ACER Swift 3</h5>
+                                  <h5 class="card-title mb-0 me-2"><?= $product['name']; ?></h5>
                                   <small class="text-body-secondary ms-0">Laptop</small>  
                               </div>
                               <img class="pfp rounded-circle img-thumbnail" src="../images/pfp.png" alt="pfp" height="40px" width="40px" style="object-fit: contain;">
                           </div>
-                          <h6 class="card-subtitle mb-2 text-success">PHP 200
+                          <h6 class="card-subtitle mb-2 text-success"><?= $product['rental_price']; ?>
                           <small class="text-body-secondary">/day</small>
                           </h6>
                           <div class="d-flex gap-1 align-items-center">
@@ -94,14 +86,14 @@ foreach ($allProducts as $product) {
                           </div>
                       </div>
                       </a>
-                  </div>
-                  <?php endforeach; ?>
+                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
         <hr>   
     <?php
-        require_once 'includes\footer.html';
+        require_once 'footer.html';
     ?>    
     </body>
 <script src="..\vendor\bootstrap-5.3.3\dist\js\bootstrap.bundle.min.js"> </script>
