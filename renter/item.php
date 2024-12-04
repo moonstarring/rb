@@ -1,3 +1,29 @@
+<?php
+require_once './../user.classes/database.php'; //Include database connection
+
+if (isset($_GET['id'])) {
+    $productId = $_GET['id'];
+    try {
+        $db = new PDO('mysql:host=localhost;dbname=project', 'root', '');
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $stmt = $db->prepare("SELECT * FROM products WHERE id = ?");
+        $stmt->execute([$productId]);
+        $product = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$product) {
+            echo "Product not found.";
+            exit;
+        }
+
+    } catch (PDOException $e) {
+        error_log("Database error (details): " . $e->getMessage());
+        echo "Error fetching product details.";
+    }
+} else {
+    echo "Product ID not provided.";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12,7 +38,7 @@
     </head>
     <body>
     <?php
-        require_once 'includes/navbar.php';
+        require_once 'navbar.php';
     ?>
     <hr class="m-0 p-0 opacity-25">
     <div class="z-3 position-absolute top-0" style="margin-left: 35%;">

@@ -1,7 +1,21 @@
 <?php
+// database.php (or include this in a class)
+$products = getProducts();
+function getProducts(){
+    try {
+        $db = new PDO('mysql:host=localhost;dbname=project', 'root', ''); // Replace with your credentials
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); //Set error handling to exception
 
-
+        $stmt = $db->query("SELECT * FROM products");
+        $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $products;
+    } catch (PDOException $e) {
+        error_log("Database error: " . $e->getMessage()); //Log the error for debugging
+        return []; //Return an empty array if there's an error
+    }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -42,24 +56,26 @@
             </div>
         </header>
         <hr>
-
-        <!--items-->
+        
+        <!--items
+        static info = category, time rate, rating, location, owner img
+        -->
         <div class="album rounded-4 my-5">
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    
+                    <?php foreach ($products as $product): ?>
                     <div class="col">
-                      <a href="" class="card rounded-5 text-decoration-none">
-                      <img src="" class="bd-placeholder-img rounded-top-5 card-img-top" alt="" width="100%" height="255px" style="object-fit: cover;">
+                      <a href="item.php?id=<?= $product['id']; ?>" class="card rounded-5 text-decoration-none">
+                      <img src="<?= $product['image']; ?>" class="bd-placeholder-img rounded-top-5 card-img-top" alt="<?= $product['name']; ?>" width="100%" height="255px" style="object-fit: cover;">
                       <div class="card-body">
                           <div class="d-flex justify-content-between align-items-center">
                               <div class="d-flex align-items-end">
-                                  <h5 class="card-title mb-0 me-2">ACER Swift 3</h5>
+                                  <h5 class="card-title mb-0 me-2"><?= $product['name']; ?></h5>
                                   <small class="text-body-secondary ms-0">Laptop</small>  
                               </div>
                               <img class="pfp rounded-circle img-thumbnail" src="../images/pfp.png" alt="pfp" height="40px" width="40px" style="object-fit: contain;">
                           </div>
-                          <h6 class="card-subtitle mb-2 text-success">PHP 200
+                          <h6 class="card-subtitle mb-2 text-success"><?= $product['rental_price']; ?>
                           <small class="text-body-secondary">/day</small>
                           </h6>
                           <div class="d-flex gap-1 align-items-center">
@@ -70,7 +86,8 @@
                           </div>
                       </div>
                       </a>
-                  </div>
+                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
