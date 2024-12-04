@@ -1,28 +1,5 @@
 <?php
 
-require_once 'includes/db_connect.php';
-require_once 'includes/product.class.php';
-
-
-$formattedProducts = [];
-
-foreach ($allProducts as $product) {
-    $formattedProducts[] = [
-        'id' => $product['id'],
-        'owner_id' => $product['owner_id'],
-        'name' => htmlspecialchars($product['name']),
-        'brand' => htmlspecialchars($product['brand']),
-        'description' => htmlspecialchars($product['description']),
-        'rental_price' => number_format($product['rental_price'], 2),
-        'status' => htmlspecialchars($product['status']),
-        'created_at' => $product['created_at'], // Format as needed
-        'updated_at' => $product['updated_at'], // Format as needed
-        'image' => $product['image'],
-        'quantity' => $product['quantity'],
-        'category' => htmlspecialchars($product['category']),
-        'rental_period' => htmlspecialchars($product['rental_period']),
-    ];
-}
 
 ?>
 <!DOCTYPE html>
@@ -44,7 +21,7 @@ foreach ($allProducts as $product) {
     </head>
     <body>
         <?php
-        require_once 'includes/navbar.php';
+        require_once 'navbar.php';
         ?>
         
         <hr class="m-0 p-0">
@@ -70,11 +47,10 @@ foreach ($allProducts as $product) {
         <div class="album rounded-4 my-5">
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    <?php foreach($allProducts as $product): ?>
                     
                     <div class="col">
-                      <a href="item.php?id=<?php echo $product['id']; ?>" class="card rounded-5 text-decoration-none">
-                      <img src="<?php echo $product['image']; ?>" class="bd-placeholder-img rounded-top-5 card-img-top" alt="<?php echo htmlspecialchars($product['name']); ?>" width="100%" height="255px" style="object-fit: cover;">
+                      <a href="" class="card rounded-5 text-decoration-none">
+                      <img src="" class="bd-placeholder-img rounded-top-5 card-img-top" alt="" width="100%" height="255px" style="object-fit: cover;">
                       <div class="card-body">
                           <div class="d-flex justify-content-between align-items-center">
                               <div class="d-flex align-items-end">
@@ -95,13 +71,12 @@ foreach ($allProducts as $product) {
                       </div>
                       </a>
                   </div>
-                  <?php endforeach; ?>
                 </div>
             </div>
         </div>
         <hr>   
     <?php
-        require_once 'includes\footer.html';
+        require_once 'footer.html';
     ?>    
     </body>
 <script src="..\vendor\bootstrap-5.3.3\dist\js\bootstrap.bundle.min.js"> </script>
