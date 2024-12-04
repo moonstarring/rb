@@ -22,7 +22,7 @@ function getProducts(){
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <title>Rentbox</title>
-        <link rel="icon" type="image/png" href="../images/rb logo white.png">
+        <link rel="icon" type="image/png" href="images/rb logo white.png">
         <link href="vendor/bootstrap-5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="../vendor/font/bootstrap-icons.css">
         <style>
@@ -73,7 +73,7 @@ function getProducts(){
                                   <h5 class="card-title mb-0 me-2"><?= $product['name']; ?></h5>
                                   <small class="text-body-secondary ms-0">Laptop</small>  
                               </div>
-                              <img class="pfp rounded-circle img-thumbnail" src="../images/pfp.png" alt="pfp" height="40px" width="40px" style="object-fit: contain;">
+                              <img class="pfp rounded-circle img-thumbnail" src="images/pfp.png" alt="pfp" height="40px" width="40px" style="object-fit: contain;">
                           </div>
                           <h6 class="card-subtitle mb-2 text-success"><?= $product['rental_price']; ?>
                           <small class="text-body-secondary">/day</small>

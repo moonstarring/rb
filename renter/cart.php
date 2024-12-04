@@ -1,17 +1,35 @@
+<?php
+require_once '../user.classes/database.php';
+require_once '../user.classes/product.class.php';
+
+if (isset($_GET['renterId']) && isset($_POST['productId'])) { //Get renter ID from GET
+    $renterId = $_GET['renterId'];
+    $productId = $_POST['productId'];
+    $productObj = new Product();
+    $success = $productObj->addProductToCart($productId, $renterId);
+    // ... rest of your code ...
+}
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Rentbox</title>
-    <link rel="icon" type="image/png" href="../images/rb logo white.png">
+    <link rel="icon" type="image/png" href="images/rb logo white.png">
     <link href="vendor/bootstrap-5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../vendor/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../vendor/flatpickr.min.css">
 </head>
 <body class=""> 
   <?php
-      require_once 'includes/navbar.php';
+      require_once 'navbar.php';
   ?>
   <hr class="m-0 p-0 opacity-25">
   
@@ -203,6 +221,7 @@
   </footer>
 </body>
 <script src="../vendor/bootstrap-5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="../vendor/flatpickr.min.js"></script>
     <script>
     //flatpickr

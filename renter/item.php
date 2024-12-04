@@ -1,15 +1,13 @@
 <?php
-require_once './../user.classes/database.php'; //Include database connection
+require_once './../user.classes/database.php'; //Keep your database connection
+require_once './../user.classes/product.class.php'; //Include the Product class
 
 if (isset($_GET['id'])) {
     $productId = $_GET['id'];
     try {
-        $db = new PDO('mysql:host=localhost;dbname=project', 'root', '');
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        $stmt = $db->prepare("SELECT * FROM products WHERE id = ?");
-        $stmt->execute([$productId]);
-        $product = $stmt->fetch(PDO::FETCH_ASSOC);
+        //Instead of your PDO code use this:
+        $productObj = new Product();  // Create a Product object
+        $product = $productObj->getProductById($productId);
 
         if (!$product) {
             echo "Product not found.";
@@ -19,11 +17,14 @@ if (isset($_GET['id'])) {
     } catch (PDOException $e) {
         error_log("Database error (details): " . $e->getMessage());
         echo "Error fetching product details.";
+        exit; //Important to stop execution on error
     }
 } else {
     echo "Product ID not provided.";
+    exit;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -134,7 +135,8 @@ if (isset($_GET['id'])) {
                     </div>                        
                 </div>
 
-                <form id="addToCartForm" method="post" action="cart.php?id=<?= $product['id']; ?>">
+                <form id="addToCartForm" method="post">
+                    <input type="hidden" id="renterId" name="renterId" value="123">
                     <div class="d-flex mb-4">
                         <h6 class="text-body-secondary" style="margin-right: 70px;">Reserve</h6>  
                         <div class="d-flex">
@@ -150,11 +152,11 @@ if (isset($_GET['id'])) {
                             <img src="./includes/images/laptop.png" class="border rounded-circle object-fit-fill" alt="pfp" height="40px" width="40px">
                         </div>
                         <div class="d-flex gap-3 mb-4">
-                            <button type="button" class="px-3 py-2 btn rounded-pill shadow-sm btn-light px-3 border ms-auto">
+                            <button type="submit" class="px-3 py-2 btn rounded-pill shadow-sm btn-light px-3 border ms-auto">
                                 <a  href="cart.php" class="text-decoration-none text-dark"><i class="bi bi-bag-plus pe-1"></i>Add to Cart</a>
                             </button>
-                            <button type="button" class="px-3 py-2 btn rounded-pill shadow-sm btn-success d-flex align-items-center gap-2" >
-                                <a href="checkout.php" class="text-decoration-none text-white">Checkout<span class="mb-0 ps-1 fw-bold" id="checkoutTotalPrice">₱</span></a>
+                            <button type="submit" class="px-3 py-2 btn rounded-pill shadow-sm btn-success d-flex align-items-center gap-2" >
+                                <a href="cart.php" class="text-decoration-none text-white">Checkout<span class="mb-0 ps-1 fw-bold" id="checkoutTotalPrice">₱</span></a>
                             </button>
                         </div>
                     </div>
@@ -227,6 +229,34 @@ if (isset($_GET['id'])) {
     }
     document.getElementById('startDate').addEventListener('change', calculateTotal);
     document.getElementById('endDate').addEventListener('change', calculateTotal);
+
+    $(document).ready(function() {
+    $('#addToCartForm').submit(function(event) {
+        event.preventDefault();
+        const renterId = $('#renterId').val(); //Get renter ID from hidden input
+        const productId = <?php echo $product['id']; ?>;
+
+        $.ajax({
+                type: 'POST',
+                url: 'add_to_cart.php', // Create a separate file to handle the addition
+                data: { renterId: renterId, productId: productId },
+                success: function(response) {
+                    if (response === 'success') {
+                        alert('Product added to cart!');
+                        // Optionally redirect or update cart display
+                    } else {
+                        alert('Error adding to cart: ' + response);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    alert('AJAX error: ' + error);
+                }
+            });
+        });
+    });
+
+
+
     </script>
 
 </html>
