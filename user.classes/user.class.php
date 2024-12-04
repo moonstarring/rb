@@ -60,32 +60,25 @@ Class User{
         }
         return false;
     }
-    function sign_in_user(){
-        $sql = "SELECT * FROM users WHERE email = :email LIMIT 1;";
-        $query = $this->db->connect()->prepare($sql);
-        $query->bindParam(':email', $this->email);
-    
-        if ($query->execute()) {
-            $accountData = $query->fetch(PDO::FETCH_ASSOC);
-    
-            if ($accountData && password_verify($this->password, $accountData['password'])) {
-                $this->id = $accountData['id'];
+    function sign_in_user() {
+        try {
+            $sql = "SELECT id, password FROM users WHERE email = ? LIMIT 1";
+            $stmt = $this->db->connect()->prepare($sql);
+            $stmt->execute([$this->email]);
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($user && password_verify($this->password, $user['password'])) {
+                $this->id = $user['id']; //Make absolutely sure this is set!
                 return true;
             }
+            return false;
+        } catch (PDOException $e) {
+            error_log("Error in User::sign_in_user(): " . $e->getMessage());
+            return false; // Or throw the exception depending on error handling strategy
         }
-    
-        return false;
-    } 
+    }
+} 
 
 
-
-
-
-
-
-
-
-
-}
 
 ?>

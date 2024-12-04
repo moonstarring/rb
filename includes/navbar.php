@@ -4,7 +4,7 @@
 <nav class="navbar navbar-expand-lg bg-body-primarypt-3 pb-3" aria-label="navbar">
     <div class="container-fluid">
         <a href="\">
-            <img class="ms-5 my-auto mt-1" src="images\rb logo text colored.png" href="index.php" alt="Logo"  height="50px">
+            <img class="ms-5 my-auto mt-1" src="includes\images\rb logo text colored.png" href="index.php" alt="Logo"  height="50px">
         </a>
 
         <button class="navbar-toggler button-outline-info" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">

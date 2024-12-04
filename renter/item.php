@@ -30,7 +30,7 @@ if (isset($_GET['id'])) {
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <title>Rentbox</title>
-        <link rel="icon" type="image/png" href="../images/rb logo white.png">
+        <link rel="icon" type="image/png" href="images/rb logo white.png">
         <link href="vendor/bootstrap-5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="../vendor/font/bootstrap-icons.css">
         <link rel="stylesheet" href="../vendor/flatpickr.min.css">
@@ -61,13 +61,13 @@ if (isset($_GET['id'])) {
             </div>
             <div class="carousel-inner border" style="width:600px; height:400px;">
                 <div class="carousel-item active">
-                <img src="includes/images/laptop.png" alt="..." class="" style="object-fit:contain; width:600px; height:400px;">
+                <img src="<?= $product['image']; ?>" alt="<?= $product['name']; ?>" class="" style="object-fit:contain; width:600px; height:400px;">
                 </div>
                 <div class="carousel-item">
-                <img src="includes/images/surface.jpg" alt="..." class="" style="object-fit:contain; width:600px; height:400px;">
+                <img src="<?= $product['image']; ?>" alt="<?= $product['name']; ?>" class="" style="object-fit:contain; width:600px; height:400px;">
                 </div>
                 <div class="carousel-item">
-                <img src="includes/images/laptop.png" alt="..." class="" style="object-fit:contain; width:600px; height:400px;">
+                <img src="<?= $product['image']; ?>" alt="<?= $product['name']; ?>" class="" style="object-fit:contain; width:600px; height:400px;">
                 </div>
             </div>
             
@@ -86,12 +86,10 @@ if (isset($_GET['id'])) {
             
         </div>
 
-
-            <?php $productPrice = 200; ?>
             <div class="container-fluid">
                 
                 <div class="d-flex align-items-end gap-2 mb-2">
-                    <h1>Product Name</h1>  
+                    <h1><?= $product['name']; ?></h1>  
                     <h6 class="text-body-secondary pb-1">Laptop</h6>  
                 </div>
                 
@@ -105,6 +103,10 @@ if (isset($_GET['id'])) {
 
                     <h5 class="text-success ps-2 pe-2">21</h5>
                     <h5 class="pe-2">Rentals</h5>
+                </div>
+
+                <div class="bg-body-tertiary mt-2 p-2 w-50">
+                    <h3 class="fw-bold text-center mb-0" ><?= $product['rental_price']; ?></h3>
                 </div>
 
                 <div class="d-flex gap-2 mt-5 mb-2 align-items-center">
@@ -132,28 +134,31 @@ if (isset($_GET['id'])) {
                     </div>                        
                 </div>
 
-                <div class="d-flex mb-4">
-                    <h6 class="text-body-secondary" style="margin-right: 70px;">Reserve</h6>  
-                    <div class="d-flex">
-                        <input class="border border-success border-1 rounded-start px-2 text-success" type="text" id="startDate" placeholder="Start Date" style="width: 100px;">
-                        <input class="border border-success border-1 rounded-end px-2 text-success" type="text" id="endDate" placeholder="End Date" style="width: 100px;">
+                <form id="addToCartForm" method="post" action="cart.php?id=<?= $product['id']; ?>">
+                    <div class="d-flex mb-4">
+                        <h6 class="text-body-secondary" style="margin-right: 70px;">Reserve</h6>  
+                        <div class="d-flex">
+                            <input class="border border-success border-1 rounded-start px-2 text-success" type="text" id="startDate" placeholder="Start Date" style="width: 100px;">
+                            <input class="border border-success border-1 rounded-end px-2 text-success" type="text" id="endDate" placeholder="End Date" style="width: 100px;">
+                        </div>
+                        
                     </div>
                     
-                </div>
 
-                <div class="d-flex justify-content-between">
-                    <div class="d-flex gap-2">
-                        <img src="./includes/images/laptop.png" class="border rounded-circle object-fit-fill" alt="pfp" height="40px" width="40px">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex gap-2">
+                            <img src="./includes/images/laptop.png" class="border rounded-circle object-fit-fill" alt="pfp" height="40px" width="40px">
+                        </div>
+                        <div class="d-flex gap-3 mb-4">
+                            <button type="button" class="px-3 py-2 btn rounded-pill shadow-sm btn-light px-3 border ms-auto">
+                                <a  href="cart.php" class="text-decoration-none text-dark"><i class="bi bi-bag-plus pe-1"></i>Add to Cart</a>
+                            </button>
+                            <button type="button" class="px-3 py-2 btn rounded-pill shadow-sm btn-success d-flex align-items-center gap-2" >
+                                <a href="checkout.php" class="text-decoration-none text-white">Checkout<span class="mb-0 ps-1 fw-bold" id="checkoutTotalPrice">₱</span></a>
+                            </button>
+                        </div>
                     </div>
-                    <div class="d-flex gap-3 mb-4">
-                        <button type="button" class="px-3 py-2 btn rounded-pill shadow-sm btn-light px-3 border ms-auto" href="">
-                            <i class="bi bi-bag-plus pe-1"></i>
-                            Add to Cart</button>
-                        <button type="button" class="px-3 py-2 btn rounded-pill shadow-sm btn-success d-flex align-items-center gap-2" >
-                            <a href="checkout.php" class="text-decoration-none text-white">Checkout<span class="mb-0 ps-1 fw-bold" id="checkoutTotalPrice">₱<?php echo $productPrice; ?></span></a>
-                        </button>
-                    </div>
-                </div>
+                </form>
             </div>
             
 
@@ -205,44 +210,23 @@ if (isset($_GET['id'])) {
     function calculateTotal() {
     const startDateInput = document.getElementById('startDate');
     const endDateInput = document.getElementById('endDate');
-    const totalPriceDisplay = document.getElementById('totalPrice');
-    const checkoutTotalPrice = document.getElementById('checkoutTotalPrice');
-    const displayStartDate = document.getElementById('displayStartDate');
-    const displayEndDate = document.getElementById('displayEndDate');
-    
-    const pricePerDay = <?php echo $productPrice; ?>; // price from PHP
+    const checkoutTotalPrice = document.getElementById('checkoutTotalPrice'); // Target this element
+
+    const pricePerDay = <?php echo $product['rental_price']; ?>;
     const startDate = new Date(startDateInput.value);
     const endDate = new Date(endDateInput.value);
-    
+
     if (startDateInput.value && endDateInput.value && startDate <= endDate) {
         const timeDifference = endDate - startDate;
-        const daysDifference = Math.ceil(timeDifference / (1000 * 3600 * 24)); // Convert to days
+        const daysDifference = Math.ceil(timeDifference / (1000 * 3600 * 24));
         const totalPrice = daysDifference * pricePerDay;
-        totalPriceDisplay.textContent = '₱' + totalPrice;
         checkoutTotalPrice.textContent = '₱' + totalPrice;
-
-        // Update displayed dates
-        displayStartDate.textContent = startDateInput.value;
-        displayEndDate.textContent = endDateInput.value;
-
-        // Show the selected dates
-        document.getElementById('selectedDates').style.display = 'block';
     } else {
-        totalPriceDisplay.textContent = '₱' + pricePerDay; 
-        checkoutTotalPrice.textContent = '₱' + pricePerDay;
-
-        // Reset displayed dates
-        displayStartDate.textContent = 'None';
-        displayEndDate.textContent = 'None';
-
-        // Hide the selected dates
-        document.getElementById('selectedDates').style.display = 'none';
+        checkoutTotalPrice.textContent = '₱' + pricePerDay; // Show rental price if dates are invalid
     }
-}
-
-// Event listeners to date inputs
-document.getElementById('startDate').addEventListener('change', calculateTotal);
-document.getElementById('endDate').addEventListener('change', calculateTotal);
+    }
+    document.getElementById('startDate').addEventListener('change', calculateTotal);
+    document.getElementById('endDate').addEventListener('change', calculateTotal);
     </script>
 
 </html>
